@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.div{
+    background-color: khaki;
+    width: 1400px;
+    height: 100px;
+    text-align: center;
+}
+
+h2,p{
+    color: rgb(179, 43, 43);
+}

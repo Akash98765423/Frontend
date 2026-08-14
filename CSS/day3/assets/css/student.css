@@ -1,0 +1,9 @@
+.div{
+    background-color: rgb(75, 70, 70);
+    width: 400px;
+    height: 380px;
+    margin: 50px;
+    padding: 20px;
+    text-align: center;
+    border: solid 10px ;
+}

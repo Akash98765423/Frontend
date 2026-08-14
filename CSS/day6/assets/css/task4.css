@@ -1,0 +1,58 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* Page */
+body{
+    background:#f4f4f4;
+    text-align:center;
+    padding:40px;
+}
+
+h1{
+    margin-bottom:30px;
+}
+
+/* Container */
+.container{
+    width:600px;
+    margin:auto;
+}
+
+/* Common Box Style */
+.box{
+    width:200px;
+    height:100px;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin:20px auto;
+}
+
+/* Box 1 - Normal Position */
+.box1{
+    background:#3498db;
+}
+
+/* Box 2 - Relative Position */
+.box2{
+    background:#2ecc71;
+
+    position:relative;
+    top:40px;
+    left:60px;
+}
+
+/* Box 3 - Normal Position */
+.box3{
+    background:#e74c3c;
+}

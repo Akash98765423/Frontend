@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Employee details</title>
+    </head>
+    <body>
+        <h3>Employee Register Form</h3>
+        <div>
+            <form method="post">
+            <label for="EmployeeId">EmployeeId</label>
+            <input type="text" id="EmployeeId" placeholder="Employee ID" required><br><br>
+            <label for="Employeename">Employee Name :</label>
+            <input type="text" id="Employeename" placeholder="Enter Your Name" required><br><br>
+            <label for="employeemail">Email :</label>
+            <input type="email" id="employeemail" placeholder="Enter Your Email" required><br><br>
+            <label for="employeemobileno">Mobile number :</label>
+            <input type="tel" id="employeemobileno" placeholder="Enter Your Number" maxlength="10" minlength="10" required><br><br>
+            <label>Department :</label>
+            <input type="radio" name="department">IT
+            <input type="radio" name="department">SALES
+            <input type="radio" name="department">DATA ANALYS
+            <br><br>
+            <label>Experience :</label>
+            <select>
+                <option value="anyone">Select one</option>
+                <option value="1 year">1</option>
+                <option value="2 year">2</option>
+                <option value="3 year">3</option>
+            </select>
+            <br><br>
+            <label>Salary :</label>
+            <input type="radio" name="salary">3lpa
+            <input type="radio" name="salary">6lpa
+            <input type="radio" name="salary">9lpa
+            <br><br>
+            <label for="">Skill :</label>
+            <input type="checkbox" name="html">HTML
+            <input type="checkbox" name="python">PYTHON
+            <input type="checkbox" name="java">JAVA
+            <input type="checkbox" name="c++">C++
+            <br><br>
+            <label for="resumeimage">Resume :</label>
+            <input type="file" id="resumeimage"   ><br><br>
+            <input type="submit">submit
+        </form>
+        </div>
+
+        
+        <div>
+             <table border="2">
+        <thead>
+        <tr>
+           <th>EMPLOYEE ID</th>
+           <th>Employee Name</th>
+           <th>Department</th>
+           <th>Experience</th>
+           <th>Salary</th>
+           <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+           <td>EMPLOYEE-ID 1001</td>
+           <td>Akash Y</td>
+           <td>IT</td>
+           <td>3</td>
+           <td>6lpa</td>
+           <td>Good</td>
+        </tr>
+        <tr>
+           <td>EMPLOYEE-ID 1002</td>
+           <td>Vicky N</td>
+           <td>SALES</td>
+           <td>1</td>
+           <td>3lpa</td>
+           <td>very good</td>
+        </tr>
+        <tr>
+            <td>EMPLOYEE-ID 1003</td>
+           <td>Tamil S</td>
+           <td>IT</td>
+           <td>3</td>
+           <td>6lpa</td>
+           <td>Average</td>
+        </tr>
+        <tr>
+            <td>EMPLOYEE-ID 1004</td>
+           <td>Bharathi M</td>
+           <td>DATA ANALYS</td>
+           <td>2</td>
+           <td>9lpa</td>
+           <td>Not good</td>
+        </tr>
+    </tbody>
+    </table>
+        </div>
+    </body>
+</html>

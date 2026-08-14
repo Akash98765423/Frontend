@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.box{
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+}
+
+.box1{
+    background-color: black;
+    color: white;
+    align-items: center;
+    border: solid 3px white;
+    margin: 30px;
+    padding: 30px;
+}

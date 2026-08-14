@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(151, 182, 197);
+    margin: 5px;
+    padding: 2px;
+}
+
+.div{
+    display: flex;
+}
+
+.box1{
+    background-color: black;
+    width: 150px;
+    height: 80px;
+}
+
+.box2{
+    background-color: black;
+    padding: 50px;
+    width: 500px;
+    height: 200px;
+}
+
+.box3{
+    background-color: black;
+    padding: 100px;
+    width: 500px;
+    height: 200px;
+    border: solid yellow 5px;
+
+}
+
+.box4{
+    background-color: black;
+    margin: 50px;
+        padding: 100px;
+    width: 500px;
+    height: 200px;
+    border: solid yellow 5px;
+}

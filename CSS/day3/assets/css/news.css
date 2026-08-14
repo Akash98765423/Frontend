@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(116, 102, 102, 0.959);
+    margin: 1px;
+    padding: 2px;
+}
+
+.csk{
+    background-color: rgb(167, 153, 153);
+    width: 700px;
+    height: 500px;
+    margin: 20px;
+    padding: 10px;
+    border: rgb(56, 54, 54) solid 3px;
+    text-align: justify;
+}
+
+.spidey{
+    background-color: rgb(167, 153, 153);
+    width: 700px;
+    height: 700px;
+    margin: 20px;
+    padding: 10px;
+    border: rgb(56, 54, 54) solid 3px;
+    text-align: justify;
+}
+
+.div{
+    display: flex;
+}

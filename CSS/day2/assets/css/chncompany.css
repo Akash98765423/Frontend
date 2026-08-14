@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+h2{
+    background-color: blue;
+    color: aliceblue;
+    text-align: center;
+    height: 50PX;
+}
+
+
+p,span{ 
+    text-align: center;
+    height: 30px;
+    width: 1400px;
+}  
+
+.zoho{
+    background-color: yellow;
+}
+
+.freshworks{
+    background-color: brown;
+}
+
+.aspire{
+    background-color: blueviolet;
+}
+
+.cts{
+    background-color: green;
+}
+
+.tcs{
+    background-color: lightblue;
+}

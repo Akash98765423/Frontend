@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    background-color: blue;
+    color: wheat;
+    height: 100px;
+    text-align: center;
+}
+
+.div{
+    background-color: brown;
+    color: yellow;
+    width: 600px;
+    height: 100px;
+    text-align: center;
+}
+

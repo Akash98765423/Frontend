@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    background-color: #3498db;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.google {
+    background-color: #4285F4;
+}
+
+.microsoft {
+    background-color: #00A4EF;
+}
+
+.apple {
+    background-color: #555555;
+}
+
+.amazon {
+    background-color: #FF9900;
+}
+
+.tesla {
+    background-color: #CC0000;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}

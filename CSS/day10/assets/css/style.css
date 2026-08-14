@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(156, 153, 153);
+}
+
+.heading{
+    background-color: rgb(1, 1, 19);
+    color: rgb(255, 69, 0);
+    padding: 35px;
+    height: 80px;
+    font-size: larger;
+}
+
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+.img{
+    border: solid 1px;
+    gap: 20px;
+    padding: 30px;
+    margin: 20px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: #0000007a 10px 10px 10px 10px;
+}

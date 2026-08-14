@@ -1,0 +1,86 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* Body */
+body{
+    background:#f4f4f4;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* Common Box Style */
+.box{
+    width:220px;
+    height:70px;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+    line-height:70px;
+    margin:20px;
+    border-radius:8px;
+}
+
+/* 1. Static */
+.static{
+    position:static;
+    background:#3498db;
+}
+
+/* 2. Relative */
+.relative{
+    position:relative;
+    top:20px;
+    left:40px;
+    background:#2ecc71;
+}
+
+/* Parent for Absolute */
+.parent{
+    position:relative;
+    width:400px;
+    height:180px;
+    border:2px dashed gray;
+    margin:40px 20px;
+}
+
+/* 3. Absolute */
+.absolute{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:#e74c3c;
+}
+
+/* 4. Fixed */
+.fixed{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#9b59b6;
+}
+
+/* 5. Sticky */
+.sticky{
+    position:sticky;
+    top:0;
+    background:#f39c12;
+}
+
+/* Extra Content */
+.content{
+    margin-top:40px;
+}
+
+.space{
+    height:1200px;
+}

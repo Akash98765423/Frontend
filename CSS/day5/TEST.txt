@@ -1,0 +1,205 @@
+1. What is CSS? Explain the full form of CSS.
+
+ANS :CSS stands for Cascading Style Sheets.
+
+It is used to style and design HTML web pages, such as adding colors, fonts, spacing, and layouts.
+
+2. What is Cascading in CSS? Give a real-time example.
+
+ANS :Cascading means when multiple CSS rules apply to the same element, the browser decides which one to use based on priority.
+
+Example:
+
+p {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+Output: The paragraph color will be red because the last rule overrides the first one.
+
+3. What is the difference between Cascading and Specificity?
+
+ANS :
+Cascading	                                  Specificity
+Decides which rule is applied based on order.	Decides which selector has higher priority.
+Last rule wins if priority is the same.    	ID > Class > Element
+
+4. What are the three types of CSS? Which one is recommended in real-time projects and why?
+
+ANS :
+Inline CSS – Inside the HTML tag.
+Internal CSS – Inside the <style> tag.
+External CSS – In a separate .css file.
+
+Recommended: External CSS because it is easy to manage, reusable, and keeps HTML clean.
+
+5. Explain the following CSS selectors with examples.
+
+ANS :
+Universal Selector (*)
+
+Selects all elements.
+
+* {
+  margin: 0;
+}
+Element Selector
+
+Selects all elements of the same tag.
+
+h1 {
+  color: blue;
+}
+Class Selector (.)
+
+Selects elements with the same class.
+
+.title {
+  color: green;
+}
+ID Selector (#)
+
+Selects one unique element.
+
+#header {
+  color: red;
+}
+Group Selector (,)
+
+Selects multiple elements together.
+
+h1, p {
+  color: purple;
+}
+Descendant Selector (space)
+
+Selects all matching elements inside another element.
+
+div p {
+  color: blue;
+}
+Child Selector (>)
+
+Selects only direct children.
+
+div > p {
+  color: red;
+}
+
+6. What is the difference between Class Selector and ID Selector?
+
+ANS :
+Class	                        ID
+Uses .	                     Uses #
+Can be used many times	    Used only once
+Lower priority         	    Higher priority
+
+7. What is the difference between Descendant Selector and Child Selector?
+
+ANS :
+Descendant Selector (div p)
+
+Selects all <p> inside <div>.
+
+Child Selector (div > p)
+
+Selects only direct child <p> of <div>.
+
+8. Explain the CSS Box Model. Name its four parts.
+
+ANS :
+Every HTML element is treated like a box.
+
+Four parts:
+
+Content
+Padding
+Border
+Margin
+
+9. What is the difference between Padding and Margin?
+
+ANS:
+Padding	Margin
+Space inside the border	Space outside the border
+Increases element size	Creates space between elements
+10. What is box-sizing: border-box? Why is it recommended?
+
+ANS :
+box-sizing:                border-box;
+
+It includes padding and border inside the width and height.
+
+Why recommended?
+
+Easy to calculate element size.
+Prevents layout issues.
+
+11. Explain the difference between the following display properties.
+
+ANS :
+display: block
+Starts on a new line.
+Takes full width.
+Width and height can be applied.
+display: inline
+Stays on the same line.
+Width and height do not work.
+display: inline-block
+Stays on the same line.
+Width and height work.
+
+12. Can we apply width and height to:
+div
+
+ANS :
+
+Yes
+
+It is a block element.
+span
+
+No (by default)
+
+It is an inline element.
+Width and height won't work unless display: inline-block or display: block is used.
+button
+
+Yes
+
+Width and height can be applied.
+
+13. What is the difference between:
+
+ANS :
+display: none;
+Completely hides the element.
+It does not take any space.
+visibility: hidden;
+Hides the element.
+It still takes space on the page.
+
+14. Explain Flexbox.
+
+ANS :
+Flexbox is a CSS layout system used to arrange items easily in rows or columns.
+
+Flex Container
+
+The parent element with:
+
+display: flex;
+Flex Item
+
+The child elements inside the flex container.
+
+Main Axis
+
+The direction in which flex items are arranged (row by default).
+
+Cross Axis
+
+The direction perpendicular to the main axis (column by default).

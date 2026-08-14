@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <title>student details</title>
+</head>
+
+<body>
+    <h3>Student Register Form</h3>
+    <div>
+        <form method="post">
+        <label for="username">Student Name :</label>
+        <input type="text" id="username" placeholder="Enter Your Name" required><br><br>
+        <label for="useremail">Email :</label>
+        <input type="email" id="useremail" placeholder="Enter Your Email" required><br><br>
+        <label for="userpassword">Password :</label>
+        <input type="password" id="userpassword" placeholder="Enter Your Password" required><br><br>
+        <label for="usermobileno">Mobile number :</label>
+        <input type="tel" id="usermobileno" placeholder="Enter Your Number" maxlength="10" minlength="10"
+            required><br><br>
+        <label for="userAge">Student Age :</label>
+        <input type="number" id="userAge" placeholder="Enter Your Age" required><br><br>
+        <label>language :</label>
+        <input type="radio" name="gender">Male
+        <input type="radio" name="gender">Female
+        <br><br>
+        <label for="">Skill :</label>
+        <input type="checkbox" name="html">HTML
+        <input type="checkbox" name="css">CSS
+        <input type="checkbox" name="js">JS
+        <input type="checkbox" name="react">REACT
+        <br><br>
+        <label>Course :</label>
+        <select>
+            <option value="anyone">Select one</option>
+            <option value="ba">BA</option>
+            <option value="java fullstack">JavaFullStack</option>
+            <option value="dataanalyst">Data Analyst</option>
+        </select>
+        <br><br>
+        <label for="Address">Address :</label>
+        <textarea id="Address" required></textarea>
+        <br><br>
+        <label for="userimage">Profile Image :</label>
+        <input type="file" id="userimage"><br><br>
+        <input type="submit">submit
+        <input type="reset">Reset
+    </form>
+    </div>
+
+    <div>
+         <table border="2">
+        <thead>
+        <tr>
+           <th>SLA ID</th>
+           <th>Student Name</th>
+           <th>Course</th>
+           <th>Email</th>
+           <th>Mobile Number</th>
+           <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+           <td>SLA-ID 1001</td>
+           <td>Akash Y</td>
+           <td>JavaFullStack</td>
+           <td>aakash1404@gmail.com</td>
+           <td>9038327382</td>
+           <td>Good</td>
+        </tr>
+        <tr>
+            <td>SLA-ID 1002</td>
+           <td>Vicky N</td>
+           <td>JavaFullStack</td>
+           <td>vicky104@gmail.com</td>
+           <td>7038377386</td>
+           <td>very good</td>
+        </tr>
+        <tr>
+            <td>SLA-ID 1003</td>
+           <td>Tamil S</td>
+           <td>JavaFullStack</td>
+           <td>tamil134@gmail.com</td>
+           <td>9790736284</td>
+           <td>Average</td>
+        </tr>
+        <tr>
+            <td>SLA-ID 1004</td>
+           <td>Bharathi M</td>
+           <td>JavaFullStack</td>
+           <td>barathi143@gmail.com</td>
+           <td>987654382</td>
+           <td>Not good</td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+</body>
+
+</html>

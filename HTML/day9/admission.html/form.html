@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>College Admission Form</title>
+</head>
+<body>
+    <h2>College Admission Form</h2>
+    <div>
+        <form>
+        <label>Student Name :</label><br>
+        <input type="text" name="student_name"><br><br>
+        <label>Father Name :</label><br>
+        <input type="text" name="father_name"><br><br>
+        <label>Mother Name :</label><br>
+        <input type="text" name="mother_name"><br><br>
+        <label>Email :</label><br>
+        <input type="email" name="email"><br><br>
+        <label>Phone :</label><br>
+        <input type="tel" name="phone"><br><br>
+        <label>Date of Birth :</label><br>
+        <input type="date" name="dob"><br><br>
+        <label>Gender :</label><br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <br><br>
+        <label>Department :</label><br>
+        <select name="department">
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>IT</option>
+            <option>Mechanical</option>
+            <option>Civil</option>
+        </select>
+        <br><br>
+        <label>Percentage :</label><br>
+        <input type="number" name="percentage"><br><br>
+        <label>Address :</label><br>
+        <textarea name="address" rows="4" cols="30"></textarea>
+        <br><br>
+        <label>Passport Size Photo :</label><br>
+        <input type="file" name="photo"><br><br>
+        <input type="submit" value="Submit Application">
+    </form>
+    </div>
+
+    <div>
+            <table border="2">
+        <tr>
+            <th>Application ID</th>
+            <th>Student Name</th>
+            <th>Department</th>
+            <th>Percentage</th>
+            <th>Email</th>
+            <th>Admission Status</th>
+        </tr>
+        <tr>
+            <td>A001</td>
+            <td>Akash</td>
+            <td>CSE</td>
+            <td>92%</td>
+            <td>akash@gmail.com</td>
+            <td>Approved</td>
+        </tr>
+        <tr>
+            <td>A002</td>
+            <td>Priya</td>
+            <td>ECE</td>
+            <td>88%</td>
+            <td>priya@gmail.com</td>
+            <td>Pending</td>
+        </tr>
+        <tr>
+            <td>A003</td>
+            <td>Rahul</td>
+            <td>IT</td>
+            <td>95%</td>
+            <td>rahul@gmail.com</td>
+            <td>Approved</td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>

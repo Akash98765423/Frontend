@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>patient details</title>
+    </head>
+    <body>
+        <h3>patient Register Form</h3>
+        <div>
+            <form method="post">
+            <label for="patientid">Patient ID :</label>
+            <input type="text" id="patientid" placeholder="Enter Patient ID"><br><br>
+            <label for="Patientname">Patient Name :</label>
+            <input type="text" id="Patientname" placeholder="Enter Patient Name" required><br><br>
+             <label for="patient">Patient Age :</label>
+            <input type="number" id="patientAge" placeholder="Enter Patient Age" required><br><br>
+            <label>Gender :</label>
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female
+            <br><br>
+            <label >Blood Group</label>
+            <input type="radio" name="bloodgroup">A+ve
+            <input type="radio" name="bloodgroup">A-ve
+            <input type="radio" name="bloodgroup">B+ve
+            <input type="radio" name="bloodgroup">B-ve
+            <input type="radio" name="bloodgroup">O+ve
+            <input type="radio" name="bloodgroup">O-ve
+            <br><br>
+            <label for="">Doctor :</label>
+            <input type="radio" name="heartdoctor">HeartDoctor
+            <input type="radio" name="Psycologist">Psycologist
+            <input type="radio" name="Physiotheorpy Doctor">Physiotheorpy
+            <input type="radio" name="eyedoctor">EyeDoctor
+            <br><br>
+            <label>Appointment Date :</label>
+            <input type="date"><br><br>
+            <label>Symptoms :</label>
+            <input type="checkbox" name="Symptoms">Stomac Pain
+            <input type="checkbox" name="Symptoms">Head Ach
+            <input type="checkbox" name="Symptoms">Heart Pain
+            <input type="checkbox" name="Symptoms">Leg Pain
+            <input type="checkbox" name="Symptoms">Gas trouble
+            <input type="checkbox" name="Symptoms">Mentaly Disturbed
+            <br><br>
+            <label for="medicalreportimage">Medical Report:</label>
+            <input type="file" id="medicalreportimage"><br><br>
+        </form>
+        </div>
+
+        <div>
+             <table border="2">
+        <thead>
+        <tr>
+           <th>PATIENT ID</th>
+           <th>Patient Name</th>
+           <th>Doctor</th>
+           <th>Blood Group</th>
+           <th>Appointment Date</th>
+           <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+           <td>PATIENT-ID 1001</td>
+           <td>Akash Y</td>
+           <td>HeartDoctor</td>
+           <td>B+ve</td>
+           <td>14.04.2026</td>
+           <td>Good</td>
+        </tr>
+        <tr>
+           <td>PATIENT-ID 1002</td>
+           <td>Vicky N</td>
+           <td>EyeDoctor</td>
+           <td>A-ve</td>
+           <td>06.08.2026</td>
+           <td>very good</td>
+        </tr>
+        <tr>
+            <td>PATIENT-ID 1003</td>
+           <td>Tamil S</td>
+           <td>Psycologist</td>
+           <td>O-ve</td>
+           <td>09.12.2026</td>
+           <td>Average</td>
+        </tr>
+        <tr>
+            <td>PATIENT-ID 1004</td>
+           <td>Bharathi M</td>
+           <td>Physiotheorpy</td>
+           <td>A-ve</td>
+           <td>987654382</td>
+           <td>Not good</td>
+        </tr>
+    </tbody>
+    </table>
+        </div>
+    </body>
+</html>

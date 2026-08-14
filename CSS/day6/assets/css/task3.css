@@ -1,0 +1,52 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* Page */
+body{
+    background:#f4f4f4;
+    text-align:center;
+    padding-top:100px;
+}
+
+h1{
+    margin-bottom:40px;
+}
+
+/* Parent Container */
+.parent{
+    position:relative;
+    display:inline-block;
+}
+
+/* Shopping Cart Icon */
+.cart{
+    font-size:90px;
+    color:#333;
+}
+
+/* Notification Badge */
+.badge{
+    position:absolute;
+    top:0;
+    right:0;
+
+    background:red;
+    color:white;
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:14px;
+    font-weight:bold;
+}

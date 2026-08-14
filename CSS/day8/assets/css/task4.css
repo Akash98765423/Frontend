@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 40px;
+}
+
+h2{
+    margin: 15px 0;
+    color: #333;
+    font-size: 30px;
+}
+
+h2::before{
+    content: "★ ";
+    color: gold;
+    font-size: 30px;
+}
+
+h2::after{
+    content: " ✔";
+    color: green;
+    font-size: 25px;
+}

@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(177, 157, 122);
+    margin: 5px;
+    padding: 2px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.one{
+    background-color: rgb(148, 135, 111);
+    margin: 5px;
+    padding: 2px;
+    border: solid 1px;
+    display: inline;
+}
+
+.three{
+    display: flex;
+    justify-content: center;
+}
+
+.dress{
+    background-color: rgb(75, 70, 70);
+    width: 350px;
+    height: 380px;
+    margin: 50px;
+    padding: 20px;
+    text-align: center;
+    border: solid 7px ;
+}
+
+.foot{
+    background-color: rgb(185, 185, 148);
+    width: 350px;
+    height: 380px;
+    margin: 50px;
+    padding: 20px;
+    text-align: center;
+    border: solid 7px ;
+}
+
+.accessories{
+    background-color: rgb(80, 80, 47);
+    width: 350px;
+    height: 380px;
+    margin: 50px;
+    padding: 20px;
+    text-align: center;
+    border: solid 7px ;
+}
+
+

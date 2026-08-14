@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+}
+
+h1{
+    margin-bottom: 30px;
+}
+
+.btn{
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save{
+    background-color: green;
+    color: white;
+}
+
+.edit{
+    background-color: orange;
+    color: white;
+}
+
+.delete{
+    background-color: red;
+    color: white;
+}
+
+.login{
+    background-color: blue;
+    color: white;
+}
+
+.register{
+    background-color: purple;
+    color: white;
+}
+
+.save:hover{
+    background-color: darkgreen;
+    color: yellow;
+}
+
+.edit:hover{
+    background-color: darkorange;
+    color: black;
+}
+
+.delete:hover{
+    background-color: black;
+    color: red;
+}
+
+.login:hover{
+    background-color: navy;
+    color: cyan;
+}
+
+.register:hover{
+    background-color: deeppink;
+    color: white;
+}
