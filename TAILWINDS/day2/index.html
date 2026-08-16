@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Enterprise Metadata -->
+  <title>CodeForge Enterprise | Global Web Development & Engineering Academy</title>
+  <meta name="description" content="Enterprise-grade Web Engineering Portal. Master HTML5, CSS3, JavaScript ES6+, Bootstrap 5, Tailwind CSS, and React 19 through corporate-aligned curriculum and enterprise project sandboxes.">
+  <meta name="keywords" content="Enterprise Learning Portal, Web Development, Frontend Engineering, React 19, Tailwind CSS, JavaScript ES6, Corporate Tech Upskilling">
+  <meta name="author" content="CodeForge Enterprise Learning Technologies">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="CodeForge Enterprise – Web Development Learning Portal">
+  <meta property="og:description" content="Corporate Engineering Training & Talent Acceleration Platform.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              navy: '#0b1120',
+              'navy-dark': '#060a12',
+              'navy-light': '#111c35',
+              card: '#0f172a',
+              'card-border': '#1e293b',
+              blue: '#2563eb',
+              sky: '#0284c7',
+              cyan: '#06b6d4',
+              indigo: '#4f46e5',
+              purple: '#7c3aed',
+              emerald: '#059669',
+            }
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'float-reverse': 'floatReverse 7s ease-in-out infinite 1s',
+            'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite',
+          },
+          keyframes: {
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            floatReverse: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-14px)' },
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.7' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Modular Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-brand-navy-dark text-slate-100 font-sans antialiased selection:bg-sky-600 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- Ambient Corporate Lighting Accents -->
+  <div class="fixed top-0 left-1/4 -translate-x-1/2 w-[550px] h-[550px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-subtle"></div>
+  <div class="fixed top-1/3 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[160px] pointer-events-none -z-10 animate-pulse-subtle" style="animation-delay: 2s;"></div>
+  <div class="fixed bottom-10 left-1/3 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse-subtle" style="animation-delay: 4s;"></div>
+
+  <!-- ========================================================================= -->
+  <!-- 0. ENTERPRISE TOP NOTICE BAR -->
+  <!-- ========================================================================= -->
+  <aside class="bg-slate-950 border-b border-slate-800 text-xs py-2 px-4 text-slate-400 hidden sm:block">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-800/80 font-mono text-[10px] font-semibold uppercase">
+          MNC Enterprise Track
+        </span>
+        <span>2026 Modern Frontend Engineering Curriculum • React 19 & Tailwind v4</span>
+      </div>
+      <div class="flex items-center space-x-4 text-slate-400">
+        <a href="courses.html" class="hover:text-sky-400 transition">Corporate Catalog</a>
+        <span class="text-slate-700">|</span>
+        <button onclick="openModal('demoModal')" class="hover:text-sky-400 transition">Request Corporate Demo</button>
+        <span class="text-slate-700">|</span>
+        <span class="text-slate-500 font-mono">SOC2 Type II • ISO 27001</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- 1. NAVIGATION BAR (Sticky & Responsive) -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-slate-800 transition-all duration-300" id="mainNavbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Left Side: Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg p-1" aria-label="CodeForge Enterprise">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-sky-500 p-[1.5px] shadow-lg shadow-blue-500/10 group-hover:shadow-sky-500/20 transition duration-300">
+            <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+              <svg class="w-5 h-5 text-sky-400 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-1.5">
+              <span class="text-xl font-bold tracking-tight text-white group-hover:text-sky-400 transition-colors">
+                CodeForge
+              </span>
+              <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-sky-400 border border-slate-700">Enterprise</span>
+            </div>
+            <span class="text-[10px] font-medium tracking-wider uppercase text-slate-400 -mt-0.5">Web Development Learning Portal</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/80 p-1.5 rounded-full border border-slate-800 shadow-inner" aria-label="Main Navigation">
+          <a href="index.html" class="px-4 py-2 text-xs font-semibold text-white bg-slate-800 rounded-full transition">Home</a>
+          <a href="courses.html" class="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition">Courses Directory</a>
+          <a href="#technologies" class="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition">Technologies</a>
+          <a href="#roadmap" class="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition">Career Roadmap</a>
+          <a href="#projects" class="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition">Projects</a>
+          <a href="#resources" class="px-4 py-2 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-full transition">Documentation</a>
+        </nav>
+
+        <!-- Right Side: Action Buttons -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button onclick="openModal('ssoModal')" class="px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-xl transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span>SSO Login</span>
+          </button>
+          <a href="courses.html" class="btn-enterprise-primary px-5 py-2.5 rounded-xl text-xs font-semibold text-white shadow-lg shadow-blue-600/25 flex items-center gap-2">
+            <span>Explore Courses</span>
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex lg:hidden items-center">
+          <button id="mobileMenuBtn" type="button" class="p-2.5 rounded-xl bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500" aria-expanded="false" aria-label="Toggle navigation">
+            <svg id="hamburgerIcon" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/98 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 shadow-2xl backdrop-blur-2xl">
+      <nav class="flex flex-col space-y-1">
+        <a href="index.html" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-white bg-slate-800">Home</a>
+        <a href="courses.html" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900">Courses Directory</a>
+        <a href="#technologies" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900">Technologies</a>
+        <a href="#roadmap" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900">Career Roadmap</a>
+        <a href="#projects" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900">Projects</a>
+        <a href="#resources" class="px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-900">Documentation</a>
+      </nav>
+      <div class="pt-3 border-t border-slate-800 flex flex-col space-y-2">
+        <button onclick="openModal('ssoModal')" class="w-full py-2.5 text-center text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 rounded-xl border border-slate-800">
+          Enterprise SSO Login
+        </button>
+        <a href="courses.html" class="btn-enterprise-primary w-full py-2.5 text-center text-xs font-semibold text-white rounded-xl shadow">
+          Start Learning Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- ========================================================================= -->
+    <!-- 2. HERO SECTION (Enterprise Developer Workspace) -->
+    <!-- ========================================================================= -->
+    <section id="home" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-corporate-grid">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Column -->
+          <div class="lg:col-span-6 flex flex-col items-start space-y-6">
+            
+            <!-- Corporate Track Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-semibold text-sky-400">
+              <span class="w-2 h-2 rounded-full bg-sky-400 status-indicator"></span>
+              <span>Enterprise Skill Acceleration Platform</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+              Master Web Development <br class="hidden sm:inline">
+              <span class="text-gradient-corporate">From Zero to Hero</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl">
+              Learn the technologies used to build modern websites and web applications through practical examples, industry-standard architectural patterns, and real-world projects.
+            </p>
+
+            <!-- CTA Actions -->
+            <div class="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
+              <a href="courses.html" class="btn-enterprise-primary w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider text-white shadow-xl shadow-blue-600/30 text-center flex items-center justify-center gap-2">
+                <span>Start Learning</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <a href="#technologies" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider text-slate-300 hover:text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-800 transition text-center flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+                <span>Explore Technologies</span>
+              </a>
+            </div>
+
+            <!-- Tech Stack List -->
+            <div class="pt-5 border-t border-slate-800/80 w-full">
+              <p class="text-[11px] uppercase tracking-wider text-slate-400 font-mono font-semibold mb-2">Core Tech Stacks Covered</p>
+              <div class="flex flex-wrap items-center gap-2 text-xs font-mono font-medium text-slate-300">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-orange-400">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm6.5 15.6L12 19.8l-6.5-2.2V6.6L12 4.2l6.5 2.4v11z"/></svg>
+                  HTML
+                </span>
+                <span class="text-slate-600">•</span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-blue-400">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm5.2 5.5l-.4 4.5H9.2l.2 2.5h7.3l-.6 6-4.1 1.2-4.1-1.2-.3-3h2.3l.1 1.5 2 .6 2-.6.2-2.5H7.1L6.5 6.5h10.7z"/></svg>
+                  CSS
+                </span>
+                <span class="text-slate-600">•</span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-yellow-300">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm10.7 13.6c.4.8 1 1.3 2 1.3 1.1 0 1.8-.6 1.8-1.5 0-1-.8-1.4-2.1-2l-.7-.3c-2.1-.9-3.4-2-3.4-4.2 0-2.1 1.6-3.7 4.1-3.7 1.8 0 3.1.7 3.9 2.2l-2 1.2c-.4-.8-.9-1.1-1.8-1.1-.9 0-1.5.5-1.5 1.2 0 .8.6 1.2 1.8 1.7l.7.3c2.4 1 3.8 2.1 3.8 4.6 0 2.5-1.9 4-4.5 4-2.5 0-4.1-1.2-4.9-2.9l2.1-1zM5.5 16.5l2-1.2c.4.7.8 1.2 1.5 1.2.7 0 1.2-.4 1.2-1.4V6.5h2.5v8.7c0 2.3-1.4 3.4-3.5 3.4-1.8 0-3-.9-3.7-2.1z"/></svg>
+                  JavaScript
+                </span>
+                <span class="text-slate-600">•</span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-purple-400">
+                  <span class="font-bold">B</span> Bootstrap
+                </span>
+                <span class="text-slate-600">•</span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-sky-400">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+                  Tailwind
+                </span>
+                <span class="text-slate-600">•</span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-cyan-300">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.3"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                  React
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Developer Code Window with Vector Badges -->
+          <div class="lg:col-span-6 relative mt-4 lg:mt-0">
+            
+            <div class="relative rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl overflow-hidden font-mono text-sm">
+              
+              <!-- Window Bar -->
+              <div class="flex items-center justify-between px-4 py-3 bg-slate-900/90 border-b border-slate-800 select-none">
+                <div class="flex items-center space-x-2">
+                  <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                  <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                  <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                  <span class="ml-2 text-xs font-sans text-slate-400 font-medium hidden sm:inline">codeforge-enterprise-ide</span>
+                </div>
+                
+                <!-- Tab Selector -->
+                <div class="flex items-center space-x-1 bg-slate-950 p-1 rounded-lg border border-slate-800 text-xs">
+                  <button id="tab-html" onclick="switchHeroTab('html')" class="px-2.5 py-1 rounded font-medium text-sky-400 bg-slate-800 border border-sky-500/40 transition">index.html</button>
+                  <button id="tab-react" onclick="switchHeroTab('react')" class="px-2.5 py-1 rounded font-medium text-slate-400 hover:text-white hover:bg-slate-900 transition">App.jsx</button>
+                  <button id="tab-js" onclick="switchHeroTab('js')" class="px-2.5 py-1 rounded font-medium text-slate-400 hover:text-white hover:bg-slate-900 transition">engine.js</button>
+                </div>
+              </div>
+
+              <!-- Code Editor Body -->
+              <div class="p-5 text-xs sm:text-sm leading-relaxed min-h-[250px] flex flex-col justify-between overflow-x-auto">
+                
+                <!-- HTML Snippet -->
+                <pre id="code-html" class="block font-mono text-slate-300"><code><span class="text-slate-600 select-none">1  </span><span class="code-token-comment">&lt;!-- CodeForge: Enterprise Web Architecture --&gt;</span>
+<span class="text-slate-600 select-none">2  </span><span class="code-token-tag">&lt;div</span> <span class="code-token-attr">class=</span><span class="code-token-val">"developer-portal bg-slate-950"</span><span class="code-token-tag">&gt;</span>
+<span class="text-slate-600 select-none">3  </span>  <span class="code-token-tag">&lt;h1</span> <span class="code-token-attr">class=</span><span class="code-token-val">"text-gradient"</span><span class="code-token-tag">&gt;</span>Hello World<span class="code-token-tag">&lt;/h1&gt;</span>
+<span class="text-slate-600 select-none">4  </span>  <span class="code-token-tag">&lt;p</span> <span class="code-token-attr">class=</span><span class="code-token-val">"font-semibold text-cyan-400"</span><span class="code-token-tag">&gt;</span>Build Something!<span class="code-token-tag">&lt;/p&gt;</span>
+<span class="text-slate-600 select-none">5  </span>  <span class="code-token-tag">&lt;button</span> <span class="code-token-attr">onclick=</span><span class="code-token-val">"deploySystem()"</span><span class="code-token-tag">&gt;</span>Deploy Production<span class="code-token-tag">&lt;/button&gt;</span>
+<span class="text-slate-600 select-none">6  </span><span class="code-token-tag">&lt;/div&gt;</span></code></pre>
+
+                <!-- React Snippet -->
+                <pre id="code-react" class="hidden font-mono text-slate-300"><code><span class="text-slate-600 select-none">1  </span><span class="code-token-keyword">import</span> React, { useState } <span class="code-token-keyword">from</span> <span class="code-token-string">'react'</span>;
+<span class="text-slate-600 select-none">2  </span>
+<span class="text-slate-600 select-none">3  </span><span class="code-token-keyword">export default function</span> <span class="code-token-func">EnterpriseApp</span>() {
+<span class="text-slate-600 select-none">4  </span>  <span class="code-token-keyword">const</span> [status, setStatus] = useState(<span class="code-token-string">'Certified'</span>);
+<span class="text-slate-600 select-none">5  </span>  <span class="code-token-keyword">return</span> (
+<span class="text-slate-600 select-none">6  </span>    <span class="code-token-tag">&lt;section</span> <span class="code-token-attr">className=</span><span class="code-token-val">"p-8 rounded-2xl bg-slate-900"</span><span class="code-token-tag">&gt;</span>
+<span class="text-slate-600 select-none">7  </span>      <span class="code-token-tag">&lt;h2&gt;</span>Architect Level: {status}<span class="code-token-tag">&lt;/h2&gt;</span>
+<span class="text-slate-600 select-none">8  </span>    <span class="code-token-tag">&lt;/section&gt;</span>
+<span class="text-slate-600 select-none">9  </span>  );
+<span class="text-slate-600 select-none">10 </span>}</code></pre>
+
+                <!-- JS Snippet -->
+                <pre id="code-js" class="hidden font-mono text-slate-300"><code><span class="text-slate-600 select-none">1  </span><span class="code-token-comment">// Production Runtime Controller</span>
+<span class="text-slate-600 select-none">2  </span><span class="code-token-keyword">async function</span> <span class="code-token-func">initializeEngine</span>() {
+<span class="text-slate-600 select-none">3  </span>  <span class="code-token-keyword">const</span> module = <span class="code-token-keyword">await</span> fetch(<span class="code-token-string">'/api/v1/curriculum'</span>);
+<span class="text-slate-600 select-none">4  </span>  console.log(<span class="code-token-string">'Production modules loaded: 100%'</span>);
+<span class="text-slate-600 select-none">5  </span>}
+<span class="text-slate-600 select-none">6  </span>initializeEngine();</code></pre>
+
+                <!-- Console Status Bar -->
+                <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span class="font-sans text-emerald-400 font-semibold">Build Passed</span>
+                    <span class="text-slate-500 font-mono hidden sm:inline">• 0 issues</span>
+                  </div>
+                  <button onclick="triggerCopyCode()" class="flex items-center gap-1 hover:text-white text-slate-400 transition font-sans text-xs bg-slate-900 px-2 py-1 rounded border border-slate-800">
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <span id="copyText">Copy</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Floating Vector Badge 1: HTML5 (Top Left) -->
+            <div class="absolute -top-4 -left-3 sm:-left-5 p-2 rounded-xl bg-slate-900/95 border border-orange-500/40 shadow-xl backdrop-blur-md animate-float-slow flex items-center gap-2 z-20">
+              <div class="w-7 h-7 rounded bg-orange-500/15 flex items-center justify-center text-orange-500">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm6.5 15.6L12 19.8l-6.5-2.2V6.6L12 4.2l6.5 2.4v11z"/></svg>
+              </div>
+              <div class="pr-1 font-mono text-[11px] font-bold text-white">HTML5</div>
+            </div>
+
+            <!-- Floating Vector Badge 2: CSS3 (Top Right) -->
+            <div class="absolute -top-5 -right-3 sm:-right-5 p-2 rounded-xl bg-slate-900/95 border border-blue-500/40 shadow-xl backdrop-blur-md animate-float-reverse flex items-center gap-2 z-20">
+              <div class="w-7 h-7 rounded bg-blue-500/15 flex items-center justify-center text-blue-400">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm5.2 5.5l-.4 4.5H9.2l.2 2.5h7.3l-.6 6-4.1 1.2-4.1-1.2-.3-3h2.3l.1 1.5 2 .6 2-.6.2-2.5H7.1L6.5 6.5h10.7z"/></svg>
+              </div>
+              <div class="pr-1 font-mono text-[11px] font-bold text-white">CSS3</div>
+            </div>
+
+            <!-- Floating Vector Badge 3: JS (Bottom Left) -->
+            <div class="absolute -bottom-4 -left-2 sm:-left-4 p-2 rounded-xl bg-slate-900/95 border border-yellow-500/40 shadow-xl backdrop-blur-md animate-float-slow flex items-center gap-2 z-20">
+              <div class="w-7 h-7 rounded bg-yellow-500/15 flex items-center justify-center text-yellow-400 font-mono font-bold text-xs">
+                JS
+              </div>
+              <div class="pr-1 font-mono text-[11px] font-bold text-white">ES6+</div>
+            </div>
+
+            <!-- Floating Vector Badge 4: React (Bottom Right) -->
+            <div class="absolute -bottom-4 -right-2 sm:-right-4 p-2 rounded-xl bg-slate-900/95 border border-cyan-400/40 shadow-xl backdrop-blur-md animate-float-reverse flex items-center gap-2 z-20">
+              <div class="w-7 h-7 rounded bg-cyan-400/15 flex items-center justify-center text-cyan-400">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+              </div>
+              <div class="pr-1 font-mono text-[11px] font-bold text-white">React 19</div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. TECHNOLOGIES SECTION (6 Corporate Technical Domains) -->
+    <!-- ========================================================================= -->
+    <section id="technologies" class="py-20 bg-slate-900/40 border-t border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-sky-950 text-sky-400 border border-sky-800 text-xs font-mono font-semibold uppercase mb-3">
+            Technical Architecture
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Explore Web Technologies
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-300">
+            Build a strong foundation and learn the tools used by modern developers.
+          </p>
+        </div>
+
+        <!-- 6 Technology Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Tech 1: HTML -->
+          <div class="enterprise-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-500">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm6.5 15.6L12 19.8l-6.5-2.2V6.6L12 4.2l6.5 2.4v11z"/></svg>
+                </div>
+                <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-slate-800 text-orange-400 border border-slate-700">HTML5</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">HTML</h3>
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Learn the structure and semantic elements used to build webpages.
+              </p>
+              
+              <div class="mt-5 pt-4 border-t border-slate-800">
+                <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">Core Topics:</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Elements</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Forms</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Tables</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Semantic HTML</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6">
+              <a href="course-detail.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-400 hover:text-orange-300 transition">
+                <span>Learn HTML</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tech 2: CSS -->
+          <div class="enterprise-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm5.2 5.5l-.4 4.5H9.2l.2 2.5h7.3l-.6 6-4.1 1.2-4.1-1.2-.3-3h2.3l.1 1.5 2 .6 2-.6.2-2.5H7.1L6.5 6.5h10.7z"/></svg>
+                </div>
+                <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-slate-800 text-blue-400 border border-slate-700">CSS3</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">CSS</h3>
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Transform simple HTML pages into beautiful and responsive websites.
+              </p>
+              
+              <div class="mt-5 pt-4 border-t border-slate-800">
+                <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">Core Topics:</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Flexbox</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Grid</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Animations</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Responsive Design</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6">
+              <a href="course-detail.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 transition">
+                <span>Learn CSS</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tech 3: JavaScript -->
+          <div class="enterprise-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-yellow-500/15 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-mono font-bold text-lg">
+                  JS
+                </div>
+                <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-slate-800 text-yellow-300 border border-slate-700">ES6+</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">JavaScript</h3>
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Add logic, functionality, and interactivity to your websites.
+              </p>
+              
+              <div class="mt-5 pt-4 border-t border-slate-800">
+                <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">Core Topics:</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Variables</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Functions</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">DOM</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Events</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6">
+              <a href="course-detail.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-yellow-400 hover:text-yellow-300 transition">
+                <span>Learn JavaScript</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tech 4: Bootstrap -->
+          <div class="enterprise-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold font-mono text-xl">
+                  B
+                </div>
+                <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-slate-800 text-purple-400 border border-slate-700">v5.3</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Bootstrap</h3>
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Build responsive interfaces quickly using a powerful CSS framework.
+              </p>
+              
+              <div class="mt-5 pt-4 border-t border-slate-800">
+                <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">Core Topics:</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Grid</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Components</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Utilities</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Responsive Design</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6">
+              <a href="course-detail.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-400 hover:text-purple-300 transition">
+                <span>Learn Bootstrap</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tech 5: Tailwind CSS -->
+          <div class="enterprise-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+                </div>
+                <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-slate-700">Tailwind</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Tailwind CSS</h3>
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Design modern interfaces using utility-first CSS classes.
+              </p>
+              
+              <div class="mt-5 pt-4 border-t border-slate-800">
+                <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">Core Topics:</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Flexbox</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Grid</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Responsive Classes</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Custom Design</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6">
+              <a href="course-detail.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 transition">
+                <span>Learn Tailwind</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tech 6: React -->
+          <div class="enterprise-card rounded-2xl p-7 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+                </div>
+                <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-slate-800 text-cyan-400 border border-slate-700">React 19</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">React</h3>
+              <p class="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                Build modern and interactive user interfaces using reusable components.
+              </p>
+              
+              <div class="mt-5 pt-4 border-t border-slate-800">
+                <p class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">Core Topics:</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Components</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Props</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">State</span>
+                  <span class="px-2.5 py-1 rounded text-xs bg-slate-900 border border-slate-800 text-slate-300">Hooks</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6">
+              <a href="course-detail.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition">
+                <span>Learn React</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. LEARNING ROADMAP (Corporate Skill Path) -->
+    <!-- ========================================================================= -->
+    <section id="roadmap" class="py-24 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-indigo-950 text-indigo-400 border border-indigo-800 text-xs font-mono font-semibold uppercase mb-3">
+            Sequential Progression
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Your Web Development Journey
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-300">
+            A standardized, industry-approved curriculum roadmap from foundational markup to enterprise React architecture.
+          </p>
+        </div>
+
+        <!-- 6 Roadmap Nodes -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 relative">
+          
+          <!-- Step 01 -->
+          <div class="enterprise-card p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-orange-500/15 text-orange-400 border border-orange-500/30 flex items-center justify-center font-mono font-bold text-xs mb-3">
+                01
+              </div>
+              <h3 class="text-base font-bold text-white">HTML</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Learn webpage structure.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[10px] font-mono text-orange-400">
+              Phase 1 • Structure
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="enterprise-card p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-blue-500/15 text-blue-400 border border-blue-500/30 flex items-center justify-center font-mono font-bold text-xs mb-3">
+                02
+              </div>
+              <h3 class="text-base font-bold text-white">CSS</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Learn styling and layouts.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[10px] font-mono text-blue-400">
+              Phase 2 • Layouts
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="enterprise-card p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-yellow-500/15 text-yellow-400 border border-yellow-500/30 flex items-center justify-center font-mono font-bold text-xs mb-3">
+                03
+              </div>
+              <h3 class="text-base font-bold text-white">JavaScript</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Learn programming and interactivity.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[10px] font-mono text-yellow-400">
+              Phase 3 • Logic
+            </div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="enterprise-card p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-purple-500/15 text-purple-400 border border-purple-500/30 flex items-center justify-center font-mono font-bold text-xs mb-3">
+                04
+              </div>
+              <h3 class="text-base font-bold text-white">Bootstrap</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Build responsive websites faster.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[10px] font-mono text-purple-400">
+              Phase 4 • Components
+            </div>
+          </div>
+
+          <!-- Step 05 -->
+          <div class="enterprise-card p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-sky-500/15 text-sky-400 border border-sky-500/30 flex items-center justify-center font-mono font-bold text-xs mb-3">
+                05
+              </div>
+              <h3 class="text-base font-bold text-white">Tailwind CSS</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Create modern custom interfaces.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[10px] font-mono text-sky-400">
+              Phase 5 • Utilities
+            </div>
+          </div>
+
+          <!-- Step 06 -->
+          <div class="enterprise-card p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-xs mb-3">
+                06
+              </div>
+              <h3 class="text-base font-bold text-white">React</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Build component-based applications.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[10px] font-mono text-cyan-400">
+              Phase 6 • Architecture
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="courses.html" class="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 font-mono">
+            <span>View Detailed Syllabus & Course Modules</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. SKILLS SECTION ("What You'll Learn") -->
+    <!-- ========================================================================= -->
+    <section id="skills" class="py-20 bg-slate-900/40 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-sky-950 text-sky-400 border border-sky-800 text-xs font-mono font-semibold uppercase mb-3">
+            Engineering Competencies
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            What You'll Learn
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-300">
+            Gain core competencies required for senior frontend and full stack developer positions.
+          </p>
+        </div>
+
+        <!-- 4 Skills Cards (Zero Emojis, Clean Vector Icons) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="enterprise-card p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-5">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">UI Design</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              Learn how to create attractive interfaces with balanced typography, hierarchy, and design tokens.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="enterprise-card p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-5">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">Responsive Design</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              Build websites that work on all screen sizes with fluid grid systems and cross-device testing.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="enterprise-card p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-yellow-500/15 border border-yellow-500/30 flex items-center justify-center text-yellow-400 mb-5">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">Web Interactivity</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              Use JavaScript to create interactive experiences, handle events, manage state, and query APIs.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="enterprise-card p-6 rounded-2xl">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-5">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white">Component Development</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              Learn reusable UI development with React components, custom hooks, and modular architecture.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. PROJECTS SECTION ("Build Real-World Projects") -->
+    <!-- ========================================================================= -->
+    <section id="projects" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono font-semibold uppercase mb-3">
+              Production Portfolio
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Build Real-World Projects
+            </h2>
+            <p class="mt-2 text-base sm:text-lg text-slate-300">
+              Apply your knowledge to production-caliber applications designed by enterprise architects.
+            </p>
+          </div>
+
+          <div class="mt-4 md:mt-0">
+            <a href="courses.html" class="inline-flex items-center gap-1 text-xs font-mono font-semibold text-sky-400 hover:text-sky-300">
+              <span>View All 20+ Labs in Catalog</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6 Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Project 1: Personal Portfolio -->
+          <div class="enterprise-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 p-4 border-b border-slate-800 flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>PROJ-01</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px]">portfolio.dev</span>
+                </div>
+                <div class="flex items-center gap-3 px-2 my-auto">
+                  <div class="w-10 h-10 rounded-lg bg-sky-600/30 border border-sky-500/40 flex items-center justify-center text-sky-400 font-bold font-mono">
+                    DEV
+                  </div>
+                  <div class="space-y-1 flex-1">
+                    <div class="h-2.5 w-3/4 bg-slate-700 rounded"></div>
+                    <div class="h-2 w-1/2 bg-slate-800 rounded"></div>
+                  </div>
+                </div>
+                <div class="text-[10px] font-mono text-slate-500">Live Preview Environment Available</div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-white">Personal Portfolio</h3>
+                <p class="mt-2 text-xs text-slate-300 leading-relaxed">
+                  Responsive engineering portfolio highlighting projects, skills, animations, and contact workflow.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px]">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-orange-400 border border-slate-800">HTML</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-blue-400 border border-slate-800">CSS</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-sky-400 border border-slate-800">Tailwind</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="course-detail.html" class="w-full py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 transition flex items-center justify-center gap-1.5">
+                <span>View Project</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2: E-Commerce Website -->
+          <div class="enterprise-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-900 via-purple-950/40 to-slate-900 p-4 border-b border-slate-800 flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>PROJ-02</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px]">shopforge.com</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 px-2 my-auto">
+                  <div class="h-12 rounded bg-slate-800/80 border border-slate-700/60 p-1"></div>
+                  <div class="h-12 rounded bg-slate-800/80 border border-slate-700/60 p-1"></div>
+                  <div class="h-12 rounded bg-slate-800/80 border border-slate-700/60 p-1"></div>
+                </div>
+                <div class="text-[10px] font-mono text-slate-500">Cart State & Checkout Engine</div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-white">E-Commerce Website</h3>
+                <p class="mt-2 text-xs text-slate-300 leading-relaxed">
+                  Full online shopping experience with product catalog, search filters, stateful shopping cart, and checkout.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px]">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-cyan-400 border border-slate-800">React</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-sky-400 border border-slate-800">Tailwind</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-yellow-400 border border-slate-800">Context API</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="course-detail.html" class="w-full py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 transition flex items-center justify-center gap-1.5">
+                <span>View Project</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3: Student Dashboard -->
+          <div class="enterprise-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-900 via-blue-950/40 to-slate-900 p-4 border-b border-slate-800 flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>PROJ-03</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px]">portal.edu</span>
+                </div>
+                <div class="flex items-end gap-2 px-4 h-14 my-auto">
+                  <div class="w-1/4 bg-blue-500/40 rounded-t h-8"></div>
+                  <div class="w-1/4 bg-sky-500/60 rounded-t h-12"></div>
+                  <div class="w-1/4 bg-indigo-500/50 rounded-t h-6"></div>
+                  <div class="w-1/4 bg-emerald-500/60 rounded-t h-10"></div>
+                </div>
+                <div class="text-[10px] font-mono text-slate-500">Analytics & Timetable System</div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-white">Student Dashboard</h3>
+                <p class="mt-2 text-xs text-slate-300 leading-relaxed">
+                  Academic portal featuring progress analytics, schedule timetables, and interactive grade calculation tables.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px]">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-purple-400 border border-slate-800">Bootstrap</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-yellow-300 border border-slate-800">JavaScript</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-blue-400 border border-slate-800">CSS</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="course-detail.html" class="w-full py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 transition flex items-center justify-center gap-1.5">
+                <span>View Project</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 4: Weather Application -->
+          <div class="enterprise-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-900 via-cyan-950/40 to-slate-900 p-4 border-b border-slate-800 flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>PROJ-04</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px]">weather.io</span>
+                </div>
+                <div class="flex items-center justify-around px-4 my-auto">
+                  <svg class="w-8 h-8 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+                  <div class="text-left font-mono">
+                    <div class="text-xl font-bold text-white">72°F</div>
+                    <div class="text-[10px] text-slate-400">San Francisco, CA</div>
+                  </div>
+                </div>
+                <div class="text-[10px] font-mono text-slate-500">Live API Geolocation Sync</div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-white">Weather Application</h3>
+                <p class="mt-2 text-xs text-slate-300 leading-relaxed">
+                  Live meteorological forecast tool with geolocation search, animated weather icons, and hourly projections.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px]">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-yellow-400 border border-slate-800">JavaScript</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-sky-400 border border-slate-800">REST API</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-blue-400 border border-slate-800">CSS Grid</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="course-detail.html" class="w-full py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 transition flex items-center justify-center gap-1.5">
+                <span>View Project</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 5: To-Do Application -->
+          <div class="enterprise-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-900 via-sky-950/40 to-slate-900 p-4 border-b border-slate-800 flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>PROJ-05</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px]">taskflow.app</span>
+                </div>
+                <div class="space-y-1.5 px-3 my-auto font-mono text-xs">
+                  <div class="flex items-center gap-2 p-1 rounded bg-slate-800/90 border border-slate-700">
+                    <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span class="text-[10px] text-slate-300">Build React Components</span>
+                  </div>
+                  <div class="flex items-center gap-2 p-1 rounded bg-slate-800/90 border border-slate-700">
+                    <div class="w-3 h-3 border border-slate-500 rounded"></div>
+                    <span class="text-[10px] text-slate-400">Deploy Production Build</span>
+                  </div>
+                </div>
+                <div class="text-[10px] font-mono text-slate-500">Local Storage Persistence</div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-white">To-Do Application</h3>
+                <p class="mt-2 text-xs text-slate-300 leading-relaxed">
+                  Feature-rich productivity dashboard with task prioritization, localStorage persistence, and drag & drop.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px]">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-cyan-400 border border-slate-800">React</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-sky-400 border border-slate-800">Tailwind</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">State</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="course-detail.html" class="w-full py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 transition flex items-center justify-center gap-1.5">
+                <span>View Project</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 6: Blog Website -->
+          <div class="enterprise-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-44 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 p-4 border-b border-slate-800 flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>PROJ-06</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-[10px]">devjournal.io</span>
+                </div>
+                <div class="space-y-1.5 px-3 my-auto">
+                  <div class="h-3 w-3/4 bg-indigo-500/30 rounded"></div>
+                  <div class="h-2 w-full bg-slate-700 rounded"></div>
+                  <div class="h-2 w-5/6 bg-slate-700 rounded"></div>
+                </div>
+                <div class="text-[10px] font-mono text-slate-500">Markdown AST Engine</div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-bold text-white">Blog Website</h3>
+                <p class="mt-2 text-xs text-slate-300 leading-relaxed">
+                  Modern developer publication platform with markdown rendering, syntax highlighting, and reading stats.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[10px]">
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-orange-400 border border-slate-800">HTML5</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-sky-400 border border-slate-800">Tailwind</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-900 text-yellow-300 border border-slate-800">JavaScript</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 pt-0">
+              <a href="course-detail.html" class="w-full py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 transition flex items-center justify-center gap-1.5">
+                <span>View Project</span>
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. DEVELOPER STATISTICS (Animated Counter) -->
+    <!-- ========================================================================= -->
+    <section id="statistics" class="py-20 bg-gradient-to-b from-slate-900 via-slate-950 to-brand-navy-dark border-t border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="enterprise-card p-6 rounded-2xl text-center">
+            <div class="text-4xl sm:text-5xl font-black font-mono text-white flex items-center justify-center">
+              <span class="stat-number" data-target="6">0</span><span class="text-sky-400">+</span>
+            </div>
+            <p class="mt-2 text-sm font-semibold text-white">Technologies</p>
+            <p class="text-xs text-slate-400 mt-0.5">Full frontend stack</p>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl text-center">
+            <div class="text-4xl sm:text-5xl font-black font-mono text-white flex items-center justify-center">
+              <span class="stat-number" data-target="50">0</span><span class="text-indigo-400">+</span>
+            </div>
+            <p class="mt-2 text-sm font-semibold text-white">Learning Topics</p>
+            <p class="text-xs text-slate-400 mt-0.5">Practical modules</p>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl text-center">
+            <div class="text-4xl sm:text-5xl font-black font-mono text-white flex items-center justify-center">
+              <span class="stat-number" data-target="20">0</span><span class="text-blue-400">+</span>
+            </div>
+            <p class="mt-2 text-sm font-semibold text-white">Projects</p>
+            <p class="text-xs text-slate-400 mt-0.5">Real-world applications</p>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl text-center">
+            <div class="text-4xl sm:text-5xl font-black font-mono text-white flex items-center justify-center">
+              <span class="stat-number" data-target="100">0</span><span class="text-emerald-400">%</span>
+            </div>
+            <p class="mt-2 text-sm font-semibold text-white">Responsive</p>
+            <p class="text-xs text-slate-400 mt-0.5">Multi-device ready</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 8. LEARNING RESOURCES ("Developer Resources") -->
+    <!-- ========================================================================= -->
+    <section id="resources" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-sky-950 text-sky-400 border border-sky-800 text-xs font-mono font-semibold uppercase mb-3">
+            Authoritative References
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Developer Resources
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-300">
+            Official documentation, specification standards, and cheat sheets.
+          </p>
+        </div>
+
+        <!-- 6 Resource Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="enterprise-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-orange-500/15 text-orange-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm6.5 15.6L12 19.8l-6.5-2.2V6.6L12 4.2l6.5 2.4v11z"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white">HTML Documentation</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Official MDN web docs and semantic reference guidelines for modern tags.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-800">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-orange-400 hover:text-orange-300">
+                <span>Explore HTML Docs</span>
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-blue-500/15 text-blue-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v14l9 3 9-3V5l-9-3zm5.2 5.5l-.4 4.5H9.2l.2 2.5h7.3l-.6 6-4.1 1.2-4.1-1.2-.3-3h2.3l.1 1.5 2 .6 2-.6.2-2.5H7.1L6.5 6.5h10.7z"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white">CSS Documentation</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Comprehensive Flexbox, CSS Grid guides, and cross-browser styling properties.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-800">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-400 hover:text-blue-300">
+                <span>Explore CSS Docs</span>
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-yellow-500/15 text-yellow-400 font-mono font-bold text-base flex items-center justify-center mb-4">
+                JS
+              </div>
+              <h3 class="text-base font-bold text-white">JavaScript Documentation</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Deep dives into modern ECMAScript specifications, DOM APIs, and async patterns.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-800">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-yellow-400 hover:text-yellow-300">
+                <span>Explore JS Docs</span>
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-purple-500/15 text-purple-400 font-mono font-bold text-lg flex items-center justify-center mb-4">
+                B
+              </div>
+              <h3 class="text-base font-bold text-white">Bootstrap Documentation</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Pre-built responsive components, grid layouts, and custom JavaScript plugins.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-800">
+              <a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-purple-400 hover:text-purple-300">
+                <span>Explore Bootstrap Docs</span>
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-sky-500/15 text-sky-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white">Tailwind Documentation</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                Interactive class lookup, configuration guides, and design tokens encyclopedia.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-800">
+              <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-sky-400 hover:text-sky-300">
+                <span>Explore Tailwind Docs</span>
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="enterprise-card p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(30 12 12)" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white">React Documentation</h3>
+              <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+                The new React.dev documentation with interactive sandboxes and hook tutorials.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-800">
+              <a href="https://react.dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
+                <span>Explore React Docs</span>
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 9. CALL-TO-ACTION -->
+    <!-- ========================================================================= -->
+    <section class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-800 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 shadow-2xl text-center max-w-4xl mx-auto space-y-6 relative overflow-hidden">
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-sky-950 text-sky-400 border border-sky-800 text-xs font-mono font-semibold uppercase">
+            Accredited Engineering Tracks
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Start Coding?
+          </h2>
+
+          <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Start learning today and turn your ideas into real-world websites and applications.
+          </p>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="courses.html" class="btn-enterprise-primary w-full sm:w-auto px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-wider text-white shadow-xl shadow-blue-600/30 flex items-center justify-center gap-2">
+              <span>Start Learning Now</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <button onclick="openModal('demoModal')" class="w-full sm:w-auto px-7 py-4 rounded-xl text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 transition">
+              Request Corporate License
+            </button>
+          </div>
+
+          <p class="text-[11px] font-mono text-slate-500">Self-Paced • Project-Based • Career Verified Certificate</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 10. ENTERPRISE FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <span class="text-lg font-bold text-white">CodeForge Enterprise</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-300">Learn. Build. Create.</p>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            Global talent accelerator empowering software engineers with practical hands-on curricula, real-world sandboxes, and verified certifications.
+          </p>
+          <div class="flex items-center space-x-3 pt-2 text-slate-400">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-slate-900 hover:bg-slate-800 flex items-center justify-center border border-slate-800 transition" aria-label="GitHub">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded bg-slate-900 hover:bg-slate-800 flex items-center justify-center border border-slate-800 transition" aria-label="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-mono font-semibold text-white uppercase tracking-wider mb-3">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="courses.html" class="hover:text-white transition">All Courses</a></li>
+            <li><a href="#technologies" class="hover:text-white transition">Technologies</a></li>
+            <li><a href="#roadmap" class="hover:text-white transition">Roadmap</a></li>
+            <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-mono font-semibold text-white uppercase tracking-wider mb-3">Technologies</h3>
+          <ul class="space-y-2">
+            <li><a href="course-detail.html" class="hover:text-white transition">HTML5</a></li>
+            <li><a href="course-detail.html" class="hover:text-white transition">CSS3</a></li>
+            <li><a href="course-detail.html" class="hover:text-white transition">JavaScript ES6+</a></li>
+            <li><a href="course-detail.html" class="hover:text-white transition">React 19</a></li>
+            <li><a href="course-detail.html" class="hover:text-white transition">Tailwind CSS</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-mono font-semibold text-white uppercase tracking-wider mb-3">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#resources" class="hover:text-white transition">Documentation</a></li>
+            <li><a href="courses.html" class="hover:text-white transition">Curriculum</a></li>
+            <li><a href="#projects" class="hover:text-white transition">Project Sandboxes</a></li>
+            <li><a href="#" onclick="openModal('demoModal'); return false;" class="hover:text-white transition">Corporate Licensing</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-4">
+        <p>© 2026 CodeForge. All Rights Reserved.</p>
+        <div class="flex items-center space-x-6 font-mono text-[11px]">
+          <a href="#" class="hover:text-slate-400 transition">Privacy Standard</a>
+          <a href="#" class="hover:text-slate-400 transition">Compliance Terms</a>
+          <a href="#" class="hover:text-slate-400 transition">ISO/SOC2 Certified</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MODALS -->
+  <!-- ========================================================================= -->
+  
+  <!-- SSO Modal -->
+  <div id="ssoModal" class="modal-backdrop fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeModal('ssoModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="text-center mb-6">
+        <h3 class="text-xl font-bold text-white">Enterprise SSO Login</h3>
+        <p class="text-xs text-slate-400 mt-1">Authenticate using Okta, Azure AD, or Corporate SAML 2.0</p>
+      </div>
+      <form onsubmit="handleEnterpriseAuth(event, 'sso')" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Corporate Email Address</label>
+          <input type="email" required placeholder="engineer@enterprise.com" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-sky-500 text-xs font-mono">
+        </div>
+        <button type="submit" class="btn-enterprise-primary w-full py-3 rounded-xl text-white font-semibold text-xs uppercase tracking-wider shadow transition">
+          Continue With SSO
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Corporate Demo Modal -->
+  <div id="demoModal" class="modal-backdrop fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeModal('demoModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="text-center mb-6">
+        <h3 class="text-xl font-bold text-white">Request Corporate Demo</h3>
+        <p class="text-xs text-slate-400 mt-1">Deploy CodeForge across your engineering organization</p>
+      </div>
+      <form onsubmit="handleEnterpriseAuth(event, 'demo')" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Work Email</label>
+          <input type="email" required placeholder="vp-eng@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-sky-500 text-xs">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Team Size</label>
+          <select class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white focus:outline-none focus:border-sky-500 text-xs">
+            <option>10 - 50 Developers</option>
+            <option>50 - 250 Developers</option>
+            <option>250+ Enterprise Scale</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-enterprise-primary w-full py-3 rounded-xl text-white font-semibold text-xs uppercase tracking-wider shadow transition mt-2">
+          Submit License Inquiry
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-slate-900 text-sky-400 border border-slate-700 shadow-xl opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:bg-sky-600 hover:text-white" aria-label="Back to top">
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <!-- JavaScript Controllers -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
