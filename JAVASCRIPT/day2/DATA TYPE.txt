@@ -1,0 +1,68 @@
+DATA TYPE :
+
+String :
+
+var userName = "Akash";
+var collegeName = "ALPHA";
+var subject= "Java";
+var studentName = "Vicky";
+var userEmail = "akash@gmail.com";
+var totalPrice = "500";
+var sellingPrice = "1000";
+var friendName = "Bhuvanhi";
+var Department = "BCA";
+var Course = "Java Fullstack";
+var movieName = "LEO";
+var Religion = "christian";
+var color = "Blue";
+var productionName = "LYCA";
+var DressType = "Formal";
+var SystemType = "laptop";
+var mobileName = "oneplus";
+var mobileType = "Touch mobile";
+
+Number :
+
+let Age = 20;
+let mobileNo = 1234567890;
+let DOB = 14.04.2026;
+let RollNo = 21;
+let Number = 1;
+let Price = 500;
+let Time = 7.30;
+let primeNumber = 1;
+let lowestPrimenumber = 1;
+let decimalNumber = 2;
+let monthinYear = 12;
+let daysinMonth = 30;
+let RegNo = 212303061;
+let studyingClass = 12;
+let apartmentFloors = 3;
+let aadharNo = 423-456;
+let IPNumber = 12345678910;
+let waistSize = 30;
+
+Boolean :
+
+const width = 18; TRUE
+const BigNumber = 18 > 16; TRUE
+const smallNumber = 18 < 19; TRUE
+const EligibleForVote = 17 > 18; TRUE
+const discount = 75 < 85; FALSE
+const lowPrice = 50 < 100; TRUE
+const HighPrice = 50 > 100; FALSE
+const BigSize = 40 < 28; FALSE
+const scale = 1cm >= 100m; TRUE
+const EggRate = 1 egg = 8rs; TRUE
+
+NULL :
+
+var userName = null;
+let mobileNO = null;
+const Age = null;
+
+Undefined :
+
+var userName;
+let mobileNO;
+const Age;
