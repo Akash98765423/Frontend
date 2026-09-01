@@ -12,7 +12,7 @@ promise.then((result) => {
 
 
 
-const promise = new Promise((resolve) => {
+const promise1 = new Promise((resolve) => {
 
     setTimeout(() => {
         resolve("Data Loaded");

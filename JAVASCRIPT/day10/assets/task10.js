@@ -12,15 +12,15 @@ var greet = function(name) {
 
 console.log(greet(name));
 
-const name = "Ravi";
-const age = 25;
+const name1 = "Ravi";
+const age1 = 25;
 
-const student = {
+const student1 = {
     name,
     age
 };
 
-const greet = (name) => {
+const greet1 = (name) => {
     return `Hello ${name}`;
 };
 
