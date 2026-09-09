@@ -1,37 +1,793 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLA DOCUMENTS</title>
-    <link rel="shortcut icon" href="task/assets/images/slalogo.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLA FRONTEND ENGINEERING PORTAL | Complete Project & Curriculum Hub</title>
+  <link rel="shortcut icon" href="task/assets/images/slalogo.png" type="image/x-icon">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              orange: '#f97316',
+              blue: '#2563eb',
+              purple: '#9333ea',
+              cyan: '#06b6d4',
+              amber: '#d97706',
+              indigo: '#4f46e5',
+              emerald: '#059669',
+              dark: '#0f172a',
+              card: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .folder-card {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .folder-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .task-chip {
+      transition: all 0.2s ease;
+    }
+    .task-chip:hover {
+      transform: translateY(-2px);
+    }
+    /* Tree structure styling */
+    .tree-item {
+      user-select: none;
+    }
+  </style>
 </head>
-<body>
-    <header class="bg-orange-400 bg-gradient-to-r from-orange-600 via-orange-400 to-orange-400 pt-5 pb-5">
-            <div class="flex justify-center item-center ">
-                <div class="flex gap-3">
-                <img src="task/assets/images/slalogo.png" class="item-start" alt="slalogo" >
-                <h1 class="text-5xl font-extrabold italic bg-gradient-to-r from-blue-900 via-blue-600  to-blue-500 bg-clip-text text-transparent">SLA</h1>
-                </div>
-            </div>
-    </header>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col">
 
-    <section>
-        <div class="flex flex-wrap justify-between">
-            <div class="m-20 ">
-                <a href="HTML/html.html" class="bg-gray-400 text-6xl font-extrabold p-3 border border-solid border-black rounded-xl">HTML</a>
+  <!-- ================= TOP HEADER & NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-200 shadow-sm transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-4">
+        
+        <!-- Brand Logo & Title -->
+        <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-orange-500 to-amber-500 p-0.5 shadow-md flex items-center justify-center group-hover:scale-105 transition">
+            <img src="task/assets/images/slalogo.png" alt="SLA Logo" class="h-10 w-10 object-contain rounded-lg bg-white p-1">
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-2xl font-black tracking-tight bg-gradient-to-r from-orange-600 via-amber-600 to-blue-600 bg-clip-text text-transparent">
+                SLA ACADEMY
+              </span>
+              <span class="px-2 py-0.5 text-xs font-bold uppercase tracking-wider bg-orange-100 text-orange-700 rounded-full border border-orange-200">
+                Workspace Hub
+              </span>
             </div>
-            <div class="m-20 ">
-                <a href="CSS/css.html" class="bg-gray-400 text-6xl font-extrabold p-3 border border-solid border-black rounded-xl">CSS</a>
-            </div>
-            <div class="m-20 ">
-                <a href="BOOTSTRAP/bs.html" class="bg-gray-400 text-6xl font-extrabold p-3 border border-solid border-black rounded-xl">BS & TW</a>
-            </div>
-            <div class="m-20 ">
-                <a href="JAVASCRIPT/js.html" class="bg-gray-400 text-6xl font-extrabold p-3 border border-solid border-black rounded-xl">JAVASCRIPT</a>
-            </div>
+            <p class="text-xs text-slate-500 font-medium hidden sm:block">Frontend Engineering & DevOps Architecture Portal</p>
+          </div>
+        </a>
+
+        <!-- Folder Quick Jump Pills (Desktop) -->
+        <nav class="hidden lg:flex items-center gap-1.5 overflow-x-auto py-1 text-xs font-semibold">
+          <a href="#HTML" class="px-3 py-1.5 rounded-lg bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 transition">HTML5</a>
+          <a href="#CSS" class="px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 transition">CSS3</a>
+          <a href="#BOOTSTRAP" class="px-3 py-1.5 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 transition">Bootstrap</a>
+          <a href="#TAILWINDS" class="px-3 py-1.5 rounded-lg bg-cyan-50 hover:bg-cyan-100 text-cyan-700 border border-cyan-200 transition">Tailwind</a>
+          <a href="#JAVASCRIPT" class="px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 transition">JavaScript</a>
+          <a href="#article" class="px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 transition">CodeForge</a>
+          <a href="#task" class="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 transition">DevOps</a>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="flex items-center gap-2">
+          <!-- Lucky Random Task Button -->
+          <button id="randomBtn" title="Launch a random task" class="inline-flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-xs font-bold rounded-lg shadow-sm hover:shadow transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+            <span class="hidden sm:inline">Random Task</span>
+          </button>
         </div>
-    </section>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION & STATS ================= -->
+  <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <!-- Decorative background glow -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-orange-400 mb-4">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            All 7 Workspace Folders Ready & Live
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+            Master Frontend & <span class="bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent">DevOps Engineering</span>
+          </h1>
+          <p class="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+            One unified web portal organizing all <strong class="text-white">HTML, CSS, Bootstrap, Tailwind, JavaScript, CodeForge Enterprise Academy</strong>, and <strong class="text-white">DevOps Architecture</strong> coursework, sandboxes, and interactive assignments.
+          </p>
+          
+          <!-- Live Global Search Bar -->
+          <div class="mt-6 relative max-w-xl">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            <input 
+              type="text" 
+              id="globalSearch" 
+              placeholder="Search across all 191 tasks, topics, days, or file names (press '/' to focus)..."
+              class="w-full pl-11 pr-24 py-3.5 bg-white/10 hover:bg-white/15 focus:bg-slate-900 border border-slate-600 focus:border-orange-500 rounded-xl text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition shadow-inner"
+            >
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+              <kbd class="px-2 py-1 text-xs font-semibold text-slate-400 bg-slate-800 border border-slate-700 rounded shadow-sm">/</kbd>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-3.5 w-full lg:w-auto flex-shrink-0">
+          
+          <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-4 backdrop-blur shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Total Folders</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-orange-400"></span>
+            </div>
+            <div class="mt-2 text-2xl sm:text-3xl font-black text-white">7 Core</div>
+            <p class="text-xs text-slate-400 mt-1">HTML, CSS, BS, TW, JS, Projects</p>
+          </div>
+
+          <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-4 backdrop-blur shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Curriculum</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+            </div>
+            <div class="mt-2 text-2xl sm:text-3xl font-black text-white">35+ Days</div>
+            <p class="text-xs text-slate-400 mt-1">Day-by-Day Progression</p>
+          </div>
+
+          <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-4 backdrop-blur shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Tasks & Portals</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="mt-2 text-2xl sm:text-3xl font-black text-white">191 Files</div>
+            <p class="text-xs text-slate-400 mt-1">100% Verified Live Links</p>
+          </div>
+
+          <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-4 backdrop-blur shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Interactive</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+            </div>
+            <div class="mt-2 text-2xl sm:text-3xl font-black text-white">Live Modal</div>
+            <p class="text-xs text-slate-400 mt-1">Instant In-Page Previewer</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIEW SWITCHER & FILTER CONTROLS ================= -->
+  <section class="bg-white border-b border-slate-200 sticky top-16 sm:top-20 z-30 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        
+        <!-- Category Filter Pills -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 text-xs font-semibold">
+          <button data-filter="all" class="filter-btn active px-3 py-1.5 rounded-lg bg-slate-900 text-white border border-slate-900 transition">All Folders (7)</button>
+          <button data-filter="HTML" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-orange-100 hover:text-orange-800 border border-slate-200 transition">HTML5</button>
+          <button data-filter="CSS" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-blue-100 hover:text-blue-800 border border-slate-200 transition">CSS3</button>
+          <button data-filter="BOOTSTRAP" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-purple-100 hover:text-purple-800 border border-slate-200 transition">Bootstrap</button>
+          <button data-filter="TAILWINDS" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-cyan-100 hover:text-cyan-800 border border-slate-200 transition">Tailwind</button>
+          <button data-filter="JAVASCRIPT" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-amber-100 hover:text-amber-800 border border-slate-200 transition">JavaScript</button>
+          <button data-filter="article" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-indigo-100 hover:text-indigo-800 border border-slate-200 transition">CodeForge</button>
+          <button data-filter="task" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-emerald-100 hover:text-emerald-800 border border-slate-200 transition">DevOps</button>
+        </div>
+
+        <!-- View Mode Segmented Controls -->
+        <div class="flex items-center gap-2 self-start md:self-auto flex-shrink-0">
+          <div class="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200 text-xs font-semibold">
+            <button id="viewCurriculumBtn" class="view-toggle-btn active flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white shadow-sm text-slate-900 transition">
+              <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+              <span>Curriculum & Tasks</span>
+            </button>
+            <button id="viewOverviewBtn" class="view-toggle-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">
+              <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+              </svg>
+              <span>Folder Cards</span>
+            </button>
+            <button id="viewTreeBtn" class="view-toggle-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition">
+              <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+              </svg>
+              <span>Directory Tree</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    
+    <!-- Search Results Feedback Bar -->
+    <div id="searchFeedback" class="hidden items-center justify-between bg-orange-50 border border-orange-200 text-orange-800 px-4 py-3 rounded-xl text-sm font-medium">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span id="searchFeedbackText">Filtering tasks...</span>
+      </div>
+      <button id="clearSearchBtn" class="text-xs font-bold text-orange-700 hover:text-orange-900 underline">Clear Filter</button>
+    </div>
+
+    <!-- ================= VIEW 1: FOLDER CARDS HUB ================= -->
+    <div id="overviewView" class="space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Core Workspace Folders</h2>
+          <p class="text-sm text-slate-500">Select any folder to jump to its curriculum or launch its primary landing directory</p>
+        </div>
+      </div>
+
+      <div id="folderCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </div>
+
+    <!-- ================= VIEW 2: CURRICULUM & TASK DIRECTORY ================= -->
+    <div id="curriculumView" class="space-y-10">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+        <div>
+          <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Curriculum & Day-by-Day Task Directory</h2>
+          <p class="text-sm text-slate-500 mt-1">Explore each day's exercises, practice code, sandboxes, and enterprise capstone projects</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="expandAllDaysBtn" class="text-xs font-semibold px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">Expand All</button>
+          <button id="collapseAllDaysBtn" class="text-xs font-semibold px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">Collapse All</button>
+        </div>
+      </div>
+
+      <div id="curriculumContainer" class="space-y-12">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </div>
+
+    <!-- ================= VIEW 3: INTERACTIVE DIRECTORY TREE ================= -->
+    <div id="treeView" class="hidden space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Physical Directory Structure</h2>
+          <p class="text-sm text-slate-500">Live representation of all directories and files under <code class="font-mono bg-slate-100 px-1.5 py-0.5 rounded text-slate-800">e:rontend</code></p>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold">
+          <span class="inline-flex items-center gap-1 text-slate-500"><span class="w-2.5 h-2.5 rounded bg-orange-400"></span>.html</span>
+          <span class="inline-flex items-center gap-1 text-slate-500"><span class="w-2.5 h-2.5 rounded bg-amber-400"></span>.js</span>
+          <span class="inline-flex items-center gap-1 text-slate-500"><span class="w-2.5 h-2.5 rounded bg-blue-400"></span>.css</span>
+          <span class="inline-flex items-center gap-1 text-slate-500"><span class="w-2.5 h-2.5 rounded bg-slate-400"></span>.txt/.pdf</span>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm overflow-x-auto">
+        <div id="treeContainer" class="font-mono text-sm space-y-1">
+          <!-- Rendered dynamically via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= IN-PAGE LIVE PREVIEW MODAL ================= -->
+  <div id="previewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-900/80 backdrop-blur-sm transition-opacity">
+    <div class="bg-white w-full max-w-6xl h-[92vh] rounded-2xl shadow-2xl flex flex-col border border-slate-300 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Modal Header Bar -->
+      <div class="px-4 py-3 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 flex-shrink-0">
+        
+        <div class="flex items-center gap-3 overflow-hidden">
+          <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
+          <div class="truncate">
+            <h3 id="modalTitle" class="font-bold text-sm sm:text-base text-white truncate">Task Preview</h3>
+            <p id="modalPath" class="font-mono text-xs text-slate-400 truncate">path/to/file.html</p>
+          </div>
+        </div>
+
+        <!-- Center Viewport Controls (Desktop) -->
+        <div class="hidden md:flex items-center bg-slate-800 p-1 rounded-lg border border-slate-700 text-xs font-semibold">
+          <button id="vpMobile" class="px-2.5 py-1 rounded text-slate-300 hover:text-white hover:bg-slate-700 transition" title="Mobile 375px">Mobile</button>
+          <button id="vpTablet" class="px-2.5 py-1 rounded text-slate-300 hover:text-white hover:bg-slate-700 transition" title="Tablet 768px">Tablet</button>
+          <button id="vpDesktop" class="px-2.5 py-1 rounded bg-slate-700 text-white transition" title="Full Desktop">Desktop</button>
+        </div>
+
+        <!-- Right Header Actions -->
+        <div class="flex items-center gap-2">
+          <!-- Refresh Preview -->
+          <button id="modalReloadBtn" class="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition" title="Reload Preview">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+          </button>
+
+          <!-- Open In New Tab -->
+          <a id="modalExternalLink" href="#" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold rounded-lg transition" title="Open directly in new tab">
+            <span>Open Tab</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+
+          <!-- Close Modal -->
+          <button id="modalCloseBtn" class="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition" title="Close (Esc)">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Modal Iframe Body -->
+      <div class="flex-grow bg-slate-100 flex items-center justify-center overflow-hidden p-0 relative">
+        <div id="iframeWrapper" class="w-full h-full bg-white transition-all duration-300 shadow-lg">
+          <iframe id="previewIframe" src="about:blank" class="w-full h-full border-0" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-sm text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="task/assets/images/slalogo.png" alt="SLA Logo" class="h-6 w-6 object-contain">
+        <span class="font-bold text-slate-800">SLA Web Engineering & DevOps Training Portal</span>
+      </div>
+      <p class="text-xs text-slate-400">All 7 folders indexed &middot; 191 verified tasks &middot; Offline & server ready</p>
+    </div>
+  </footer>
+
+  <!-- ================= EMBEDDED MANIFEST DATA & APPLICATION LOGIC ================= -->
+  <script>
+    const CURRICULUM = [{"id": "HTML", "title": "HTML5 & Semantic Web", "badge": "HTML5", "color": "orange", "gradient": "from-amber-500 to-orange-600", "bgLight": "bg-orange-50", "border": "border-orange-200", "text": "text-orange-600", "overviewPage": "HTML/html.html", "description": "Foundations of web structure, semantic architecture, responsive media, accessible tables, and multi-page web applications.", "days": [{"day": "Day 1", "topic": "Introduction & Basic Document Structure", "files": [{"name": "Practice 1 (Document Skeleton)", "path": "HTML/Day1/Task/index.html", "type": "html", "badge": "Practice"}]}, {"day": "Day 2", "topic": "HTML Basics & One Piece Arc Gallery", "files": [{"name": "Practice 2 (One Piece Island Gallery)", "path": "HTML/day2/task/index.html", "type": "html", "badge": "Practice"}]}, {"day": "Day 3", "topic": "Web Fundamentals & Profile Pages", "files": [{"name": "Company Profile", "path": "HTML/day3/company.html", "type": "html", "badge": "Task 1"}, {"name": "Personal Profile", "path": "HTML/day3/profile.html", "type": "html", "badge": "Task 2"}, {"name": "What is HTML (Notes)", "path": "HTML/day3/What is HTML.txt", "type": "txt", "badge": "Notes"}]}, {"day": "Day 4", "topic": "Block vs Inline Elements & Text Formatting", "files": [{"name": "Block Elements", "path": "HTML/day4/block.html", "type": "html", "badge": "Task 1"}, {"name": "Inline Elements", "path": "HTML/day4/inline.html", "type": "html", "badge": "Task 2"}, {"name": "Text Formatting Tags", "path": "HTML/day4/format.html", "type": "html", "badge": "Task 3"}, {"name": "Interactive Elements", "path": "HTML/day4/interactive.html", "type": "html", "badge": "Task 4"}, {"name": "File Linking", "path": "HTML/day4/file.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 5", "topic": "Semantic Layout & Web Structure", "files": [{"name": "Semantic Article Layout", "path": "HTML/day5/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Header & Navigation", "path": "HTML/day5/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Main & Section Structure", "path": "HTML/day5/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Aside & Sidebar", "path": "HTML/day5/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Footer & Legal Metadata", "path": "HTML/day5/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Semantic Tags Reference", "path": "HTML/day5/sementic_tags.txt", "type": "txt", "badge": "Notes"}]}, {"day": "Day 6", "topic": "Attributes, Links, Images & Media Embedding", "files": [{"name": "Assessment Page", "path": "HTML/day6/assesment.html", "type": "html", "badge": "Assessment"}, {"name": "College Website Portal", "path": "HTML/day6/collegewebsite.html", "type": "html", "badge": "Project"}, {"name": "Google Link Sandbox", "path": "HTML/day6/googlelink.html", "type": "html", "badge": "Task 3"}, {"name": "Interactive Image Gallery", "path": "HTML/day6/imagegallery.html", "type": "html", "badge": "Gallery"}, {"name": "New Tab Navigation", "path": "HTML/day6/newtablink.html", "type": "html", "badge": "Task 5"}, {"name": "Student Profile Page", "path": "HTML/day6/studentprofile.html", "type": "html", "badge": "Profile"}, {"name": "Statistics Problem Sheet (PDF)", "path": "HTML/day6/220E4B - Statistics II - Important Problems (1).pdf", "type": "pdf", "badge": "Doc"}]}, {"day": "Day 7", "topic": "Lists, Tables, Constitution & Tech Hubs", "files": [{"name": "Main Portal Hub", "path": "HTML/day7/index.html", "type": "html", "badge": "Portal"}, {"name": "Tech Directory Hub", "path": "HTML/day7/index2.html", "type": "html", "badge": "Hub 2"}, {"name": "Constitution: Fundamental Rights", "path": "HTML/day7/page2.html/rights.html", "type": "html", "badge": "Gov Project"}, {"name": "Constitution: Fundamental Duties", "path": "HTML/day7/page2.html/duty.html", "type": "html", "badge": "Gov Project"}, {"name": "Constitution: Key Features", "path": "HTML/day7/page2.html/feature.html", "type": "html", "badge": "Gov Project"}, {"name": "Chennai IT Hub (TCS, Zoho, Freshworks)", "path": "HTML/day7/pages/chn.html", "type": "html", "badge": "City Hub"}, {"name": "Bangalore IT Hub (Google, Infosys, MS)", "path": "HTML/day7/pages/blr.html", "type": "html", "badge": "City Hub"}, {"name": "Hyderabad IT Hub (Amazon, Oracle, Wipro)", "path": "HTML/day7/pages/hyd.html", "type": "html", "badge": "City Hub"}]}, {"day": "Day 8", "topic": "Form Handling, Inputs & Validations", "files": [{"name": "Contact Us Form", "path": "HTML/day8/contact.html", "type": "html", "badge": "Form"}, {"name": "User Feedback Form", "path": "HTML/day8/feedback.html", "type": "html", "badge": "Form"}, {"name": "Job Application Form", "path": "HTML/day8/job.html", "type": "html", "badge": "Form"}, {"name": "User Login Form", "path": "HTML/day8/login.html", "type": "html", "badge": "Form"}, {"name": "Account Registration Form", "path": "HTML/day8/register.html", "type": "html", "badge": "Form"}]}, {"day": "Day 9", "topic": "Enterprise Table & Form Portals", "files": [{"name": "College Admission Portal", "path": "HTML/day9/admission.html/form.html", "type": "html", "badge": "Portal"}, {"name": "Employee Details Portal", "path": "HTML/day9/employee_detail/form.html", "type": "html", "badge": "HR Portal"}, {"name": "Hospital Patient Record System", "path": "HTML/day9/patient_details/form.html", "type": "html", "badge": "Healthcare"}, {"name": "Product Inventory Management", "path": "HTML/day9/product.html/form.html", "type": "html", "badge": "Inventory"}, {"name": "Student Registry System", "path": "HTML/day9/studentdetail/form.html", "type": "html", "badge": "Education"}]}, {"day": "Day 10", "topic": "HTML5 Metadata, Viewports & DocType", "files": [{"name": "Task 1 (Meta Tags & Charset)", "path": "HTML/day10/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Responsive Viewport)", "path": "HTML/day10/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (OpenGraph & SEO Meta)", "path": "HTML/day10/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Doctype HTML5 Compatibility)", "path": "HTML/day10/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Favicon & Browser Settings)", "path": "HTML/day10/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 11", "topic": "Audio, Video & Embedded Multimedia", "files": [{"name": "Task 1 (Audio Player Controls)", "path": "HTML/day11/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (HTML5 Video Player)", "path": "HTML/day11/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (YouTube/Media Iframe)", "path": "HTML/day11/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Picture Tag & Responsive Art)", "path": "HTML/day11/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (PDF & Object Embed)", "path": "HTML/day11/task5.html", "type": "html", "badge": "Task 5"}]}]}, {"id": "CSS", "title": "CSS3 & Modern Layouts", "badge": "CSS3", "color": "blue", "gradient": "from-blue-600 to-indigo-700", "bgLight": "bg-blue-50", "border": "border-blue-200", "text": "text-blue-600", "overviewPage": "CSS/css.html", "description": "Styling specifications, CSS Box Model, Flexbox layouts, 2D Grid systems, animations, and responsive media queries.", "days": [{"day": "Day 1", "topic": "CSS Properties, Values & Color Models", "files": [{"name": "Task 1 (Color & Background)", "path": "CSS/day1/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Font Styles & Weight)", "path": "CSS/day1/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Text Alignment & Decoration)", "path": "CSS/day1/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Borders & Outlines)", "path": "CSS/day1/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (CSS Specificity & Units)", "path": "CSS/day1/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Day 1 Index Demo", "path": "CSS/day1/index.html", "type": "html", "badge": "Demo"}, {"name": "Challenge Task", "path": "CSS/day1/clngtask.html", "type": "html", "badge": "Challenge"}]}, {"day": "Day 2", "topic": "CSS Selectors (Class, ID, Element, Combinators)", "files": [{"name": "Task 1 (Element & Class Selectors)", "path": "CSS/day2/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (ID Selectors & Specificity)", "path": "CSS/day2/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Descendant Combinator)", "path": "CSS/day2/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Child & Adjacent Sibling)", "path": "CSS/day2/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Attribute Selectors)", "path": "CSS/day2/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Task 6 (Universal & Grouping)", "path": "CSS/day2/task6.html", "type": "html", "badge": "Task 6"}]}, {"day": "Day 3", "topic": "CSS Box Model (Margin, Border, Padding, Content)", "files": [{"name": "Task 1 (Box-Sizing & Dimensions)", "path": "CSS/day3/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Padding & Spacing Rules)", "path": "CSS/day3/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Margin Collapsing Demo)", "path": "CSS/day3/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Border Styles & Radii)", "path": "CSS/day3/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Outline vs Border)", "path": "CSS/day3/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Box Model Challenge", "path": "CSS/day3/challenge.html", "type": "html", "badge": "Challenge"}]}, {"day": "Day 4", "topic": "Display Properties & Introduction to Flexbox", "files": [{"name": "Task 1 (Display Block vs Inline)", "path": "CSS/day4/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Display Inline-Block)", "path": "CSS/day4/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Flex Container & Direction)", "path": "CSS/day4/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Justify-Content Alignment)", "path": "CSS/day4/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Align-Items Centering)", "path": "CSS/day4/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 5", "topic": "Advanced Flexbox (Wrap, Growth, Shrink & Navbars)", "files": [{"name": "Main Flex Project Task", "path": "CSS/day5/task.html", "type": "html", "badge": "Main"}, {"name": "Task 1 (Flex-Wrap & Multi-Line)", "path": "CSS/day5/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Flex-Grow & Basis)", "path": "CSS/day5/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Flex Order & Reordering)", "path": "CSS/day5/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 5 (Responsive Flex Grid)", "path": "CSS/day5/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Flexbox Test Assessment Notes", "path": "CSS/day5/TEST.txt", "type": "txt", "badge": "Notes"}]}, {"day": "Day 6", "topic": "Positioning (Static, Relative, Absolute, Fixed, Sticky)", "files": [{"name": "Task 1 (Static & Relative Position)", "path": "CSS/day6/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Absolute & Containing Block)", "path": "CSS/day6/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Fixed Navbar & Overlays)", "path": "CSS/day6/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Sticky Headers)", "path": "CSS/day6/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Z-Index & Stacking Context)", "path": "CSS/day6/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 7", "topic": "CSS 2D Grid Layouts", "files": [{"name": "Task 1 (Grid Template Columns & Rows)", "path": "CSS/day7/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Grid Gap & Fr Units)", "path": "CSS/day7/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Grid Column & Row Spanning)", "path": "CSS/day7/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Grid Template Areas)", "path": "CSS/day7/task4.html", "type": "html", "badge": "Task 4"}]}, {"day": "Day 8", "topic": "Pseudo-Classes & Pseudo-Elements", "files": [{"name": "Task 1 (:hover, :active, :focus)", "path": "CSS/day8/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (:nth-child & :first-child)", "path": "CSS/day8/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (::before & ::after Badges)", "path": "CSS/day8/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (::placeholder & ::selection)", "path": "CSS/day8/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Form State Pseudo-Classes)", "path": "CSS/day8/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 9", "topic": "Transitions, Transforms & Keyframe Animations", "files": [{"name": "Task 1 (CSS Transitions & Timing)", "path": "CSS/day9/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (2D Transform Scale & Rotate)", "path": "CSS/day9/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Translate & Skew Effects)", "path": "CSS/day9/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (@keyframes Infini-Spin)", "path": "CSS/day9/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Card Flip & Hover 3D)", "path": "CSS/day9/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 10", "topic": "Responsive Design & Media Queries", "files": [{"name": "Responsive Dashboard Portal", "path": "CSS/day10/index.html", "type": "html", "badge": "Portal"}, {"name": "Task 1 (Mobile Breakpoints <= 480px)", "path": "CSS/day10/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Tablet Breakpoints <= 768px)", "path": "CSS/day10/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Desktop Breakpoints >= 1024px)", "path": "CSS/day10/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Print Media Query)", "path": "CSS/day10/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Dark Mode Media Query)", "path": "CSS/day10/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Responsive Layout Challenge", "path": "CSS/day10/clng.html", "type": "html", "badge": "Challenge"}]}]}, {"id": "BOOTSTRAP", "title": "Bootstrap 5 Framework", "badge": "Bootstrap", "color": "purple", "gradient": "from-purple-600 to-violet-700", "bgLight": "bg-purple-50", "border": "border-purple-200", "text": "text-purple-600", "overviewPage": "BOOTSTRAP/bs.html", "description": "Mobile-first 12-column grid, responsive cards, utility classes, navigation, and prebuilt interactive UI components.", "days": [{"day": "Day 1", "topic": "Bootstrap 5 Setup, Containers & Grid System", "files": [{"name": "Bootstrap Landing Demo", "path": "BOOTSTRAP/day1/index1.html", "type": "html", "badge": "Demo"}, {"name": "Task 1 (12-Column Responsive Grid)", "path": "BOOTSTRAP/day1/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Bootstrap Cards & Badges)", "path": "BOOTSTRAP/day1/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Navbar & Hero Section)", "path": "BOOTSTRAP/day1/task3.html", "type": "html", "badge": "Task 3"}]}, {"day": "Day 2", "topic": "Bootstrap Flex-Grid & Pet Store Showcase Project", "files": [{"name": "Pet Care & Animal Adoption Portal", "path": "BOOTSTRAP/day2/index.html", "type": "html", "badge": "Project"}]}]}, {"id": "TAILWINDS", "title": "Tailwind CSS Utility Suite", "badge": "Tailwind", "color": "cyan", "gradient": "from-cyan-600 to-teal-700", "bgLight": "bg-cyan-50", "border": "border-cyan-200", "text": "text-cyan-700", "overviewPage": "TAILWINDS/day2/index.html", "description": "Utility-first modern CSS framework, responsive typography, custom color systems, CodeForge Academy portal, and challenge cards.", "days": [{"day": "Day 1", "topic": "Tailwind CSS Fundamentals & Utility Classes", "files": [{"name": "Tailwind Foundation Practice", "path": "TAILWINDS/day1/index.html", "type": "html", "badge": "Practice"}]}, {"day": "Day 2", "topic": "CodeForge Enterprise Academy Multi-Page Portal", "files": [{"name": "Academy Home Landing Page", "path": "TAILWINDS/day2/index.html", "type": "html", "badge": "Home Portal"}, {"name": "Course Catalog & Search Page", "path": "TAILWINDS/day2/courses.html", "type": "html", "badge": "Catalog"}, {"name": "Course Detail & Syllabus Page", "path": "TAILWINDS/day2/course-detail.html", "type": "html", "badge": "Course Detail"}]}, {"day": "Day 3", "topic": "Interactive Tailwind UI Component Challenges", "files": [{"name": "Task 1 (Modern Pricing Cards)", "path": "TAILWINDS/day3/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (User Testimonial Grid)", "path": "TAILWINDS/day3/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Feature Hero Section)", "path": "TAILWINDS/day3/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (E-Commerce Product Card)", "path": "TAILWINDS/day3/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Stats & Analytics Dashboard)", "path": "TAILWINDS/day3/task5.html", "type": "html", "badge": "Task 5"}]}]}, {"id": "JAVASCRIPT", "title": "JavaScript (ES6+) Core to DOM", "badge": "JavaScript", "color": "amber", "gradient": "from-amber-500 to-yellow-600", "bgLight": "bg-amber-50", "border": "border-amber-200", "text": "text-amber-700", "overviewPage": "JAVASCRIPT/js.html", "description": "Modern ECMAScript programming: variables, data structures, control flow, loops, higher-order functions, DOM scripting, events, and assessments.", "days": [{"day": "Day 1", "topic": "Introduction to JavaScript & Variable Naming Rules", "files": [{"name": "JavaScript Q&A Study Guide", "path": "JAVASCRIPT/day1/javascript Q&A.txt", "type": "txt", "badge": "Notes"}, {"name": "Variable Naming Conventions", "path": "JAVASCRIPT/day1/variable_names.txt", "type": "txt", "badge": "Notes"}]}, {"day": "Day 2", "topic": "Variables, let/const/var & Primitive Data Types", "files": [{"name": "Data Types Sandbox Demo", "path": "JAVASCRIPT/day2/index.html", "type": "html", "badge": "Sandbox"}, {"name": "Data Types Reference Document", "path": "JAVASCRIPT/day2/DATA TYPE.txt", "type": "txt", "badge": "Notes"}]}, {"day": "Day 3", "topic": "Operators (Arithmetic, Assignment, Comparison, Logical)", "files": [{"name": "Operators & Expressions Sandbox", "path": "JAVASCRIPT/day3/index.html", "type": "html", "badge": "Sandbox"}]}, {"day": "Day 4", "topic": "Conditional & Control Flow Statements", "files": [{"name": "Age Eligibility Verification", "path": "JAVASCRIPT/day4/agecheck.html", "type": "html", "badge": "Task 1"}, {"name": "Day of the Week Checker", "path": "JAVASCRIPT/day4/daycheck.html", "type": "html", "badge": "Task 2"}, {"name": "Even or Odd Evaluator", "path": "JAVASCRIPT/day4/evenodd.html", "type": "html", "badge": "Task 3"}, {"name": "Credential & Login Authenticator", "path": "JAVASCRIPT/day4/logincheck.html", "type": "html", "badge": "Task 4"}, {"name": "Student Grade Calculator", "path": "JAVASCRIPT/day4/markgrade.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 5", "topic": "Looping Structures (for, while, do-while, break/continue)", "files": [{"name": "Task 1 (Numbers 1 to 10)", "path": "JAVASCRIPT/day5/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Sum of First N Numbers)", "path": "JAVASCRIPT/day5/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Multiplication Table)", "path": "JAVASCRIPT/day5/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Factorial Calculation)", "path": "JAVASCRIPT/day5/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Even Numbers in Range)", "path": "JAVASCRIPT/day5/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Task 6 (Reverse a Number)", "path": "JAVASCRIPT/day5/task6.html", "type": "html", "badge": "Task 6"}, {"name": "Task 7 (Palindrome Number Check)", "path": "JAVASCRIPT/day5/task7.html", "type": "html", "badge": "Task 7"}, {"name": "Task 8 (Fibonacci Series)", "path": "JAVASCRIPT/day5/task8.html", "type": "html", "badge": "Task 8"}, {"name": "Task 9 (Prime Number Detector)", "path": "JAVASCRIPT/day5/task9.html", "type": "html", "badge": "Task 9"}, {"name": "Task 10 (Armstrong Number)", "path": "JAVASCRIPT/day5/task10.html", "type": "html", "badge": "Task 10"}, {"name": "Task 11 (Pattern Printing Loops)", "path": "JAVASCRIPT/day5/task11.html", "type": "html", "badge": "Task 11"}]}, {"day": "Day 6", "topic": "Non-Primitive Data Types (Arrays & Object Manipulation)", "files": [{"name": "Task 1 (Array Creation & Access)", "path": "JAVASCRIPT/day6/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Push, Pop, Shift, Unshift)", "path": "JAVASCRIPT/day6/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Array Slicing & Splicing)", "path": "JAVASCRIPT/day6/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Array Searching & IndexOf)", "path": "JAVASCRIPT/day6/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Array Sorting & Reversing)", "path": "JAVASCRIPT/day6/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Task 6 (Object Literals & Properties)", "path": "JAVASCRIPT/day6/task6.html", "type": "html", "badge": "Task 6"}, {"name": "Task 7 (Nested Object Traversal)", "path": "JAVASCRIPT/day6/task7.html", "type": "html", "badge": "Task 7"}, {"name": "Task 8 (Object Methods & this keyword)", "path": "JAVASCRIPT/day6/task8.html", "type": "html", "badge": "Task 8"}, {"name": "Task 9 (Object.keys & Object.values)", "path": "JAVASCRIPT/day6/task9.html", "type": "html", "badge": "Task 9"}, {"name": "Task 10 (Object Destructuring)", "path": "JAVASCRIPT/day6/task10.html", "type": "html", "badge": "Task 10"}]}, {"day": "Day 7", "topic": "Array of Objects, Map, Filter & Reduce", "files": [{"name": "Task 1 (Array of Objects Iteration)", "path": "JAVASCRIPT/day7/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Array Filter Operations)", "path": "JAVASCRIPT/day7/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Array Map Transformation)", "path": "JAVASCRIPT/day7/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Array Reduce Aggregation)", "path": "JAVASCRIPT/day7/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Searching in Object Arrays)", "path": "JAVASCRIPT/day7/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 8", "topic": "Functions, Parameters, Arrow Functions & Return Values", "files": [{"name": "Task 1 (Function Declaration & Calling)", "path": "JAVASCRIPT/day8/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Default & Rest Parameters)", "path": "JAVASCRIPT/day8/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Arrow Functions ES6)", "path": "JAVASCRIPT/day8/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Callback Functions)", "path": "JAVASCRIPT/day8/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Higher-Order Functions)", "path": "JAVASCRIPT/day8/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 9", "topic": "Scope, Closures & Variable Hoisting", "files": [{"name": "Task 1 (Global vs Function Scope)", "path": "JAVASCRIPT/day9/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Block Scope let/const)", "path": "JAVASCRIPT/day9/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Variable Hoisting Mechanism)", "path": "JAVASCRIPT/day9/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Function Hoisting)", "path": "JAVASCRIPT/day9/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Closures & Lexical Scoping)", "path": "JAVASCRIPT/day9/task5.html", "type": "html", "badge": "Task 5"}]}, {"day": "Day 10", "topic": "DOM Manipulation, Selectors & Dynamic Elements", "files": [{"name": "Task 1 (getElementById & innerHTML)", "path": "JAVASCRIPT/day10/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (querySelector & Classes)", "path": "JAVASCRIPT/day10/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Style Manipulation via JS)", "path": "JAVASCRIPT/day10/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Attribute Manipulation setAttribute)", "path": "JAVASCRIPT/day10/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (createElement & appendChild)", "path": "JAVASCRIPT/day10/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Task 6 (removeChild & DOM Cleanup)", "path": "JAVASCRIPT/day10/task6.html", "type": "html", "badge": "Task 6"}, {"name": "Task 7 (classList add/remove/toggle)", "path": "JAVASCRIPT/day10/task7.html", "type": "html", "badge": "Task 7"}, {"name": "Task 8 (Form Value Extraction)", "path": "JAVASCRIPT/day10/task8.html", "type": "html", "badge": "Task 8"}, {"name": "Task 9 (Dynamic Table Generation)", "path": "JAVASCRIPT/day10/task9.html", "type": "html", "badge": "Task 9"}, {"name": "Task 10 (Interactive UI Widget)", "path": "JAVASCRIPT/day10/task10.html", "type": "html", "badge": "Task 10"}, {"name": "Day 10 Capstone Project", "path": "JAVASCRIPT/day10/projectday10/index.html", "type": "html", "badge": "Project"}]}, {"day": "Day 11", "topic": "Event Listeners, Event Bubbling & Interactive UI", "files": [{"name": "Task 1 (addEventListener Click & DblClick)", "path": "JAVASCRIPT/day11/task1.html", "type": "html", "badge": "Task 1"}, {"name": "Task 2 (Mouseenter & Mouseleave Effects)", "path": "JAVASCRIPT/day11/task2.html", "type": "html", "badge": "Task 2"}, {"name": "Task 3 (Keyboard Events keydown/keyup)", "path": "JAVASCRIPT/day11/task3.html", "type": "html", "badge": "Task 3"}, {"name": "Task 4 (Form Submit & preventDefault)", "path": "JAVASCRIPT/day11/task4.html", "type": "html", "badge": "Task 4"}, {"name": "Task 5 (Change & Input Real-Time Validation)", "path": "JAVASCRIPT/day11/task5.html", "type": "html", "badge": "Task 5"}, {"name": "Task 6 (Event Delegation & Bubbling)", "path": "JAVASCRIPT/day11/task6.html", "type": "html", "badge": "Task 6"}]}, {"day": "Day 13", "topic": "Full Interactive JavaScript Application Sandbox", "files": [{"name": "Day 13 Interactive Web App", "path": "JAVASCRIPT/day13/index.html", "type": "html", "badge": "Application"}]}, {"day": "Test & Assessment", "topic": "JavaScript Comprehensive Assessment Suite", "files": [{"name": "Interactive Test Examination", "path": "JAVASCRIPT/test/test.html", "type": "html", "badge": "Exam"}, {"name": "JavaScript Assessment Questions & Solutions", "path": "JAVASCRIPT/test/JAVASCRIPT TEST.txt", "type": "txt", "badge": "Assessment"}]}]}, {"id": "article", "title": "CodeForge Enterprise Academy Portal", "badge": "Enterprise LMS", "color": "indigo", "gradient": "from-indigo-600 to-blue-800", "bgLight": "bg-indigo-50", "border": "border-indigo-200", "text": "text-indigo-700", "overviewPage": "article/index.html", "description": "Production-ready enterprise learning management system featuring corporate design tokens, dynamic courses catalog, detailed course syllabus, and interactive modal enrollment.", "days": [{"day": "Production Portal", "topic": "Enterprise Academy Multi-Page Platform", "files": [{"name": "CodeForge Academy Home Portal", "path": "article/index.html", "type": "html", "badge": "Home Portal"}, {"name": "Enterprise Course Catalog", "path": "article/courses.html", "type": "html", "badge": "Courses"}, {"name": "Course Detail & Syllabus with Modal", "path": "article/course-detail.html", "type": "html", "badge": "Course Detail"}]}]}, {"id": "task", "title": "Web Development & DevOps Architecture", "badge": "Knowledge Base", "color": "emerald", "gradient": "from-emerald-600 to-teal-700", "bgLight": "bg-emerald-50", "border": "border-emerald-200", "text": "text-emerald-700", "overviewPage": "task/article.html", "description": "Comprehensive architectural reference on Full-Stack engineering, DevOps automation, cloud databases, software lifecycle, and tech industry career roadmaps.", "days": [{"day": "Architecture Reference", "topic": "Web Development, Full-Stack & DevOps Guide", "files": [{"name": "Web & DevOps Master Architecture Article", "path": "task/article.html", "type": "html", "badge": "Master Article"}]}]}];
+    const DIRECTORY_TREE = [{"name": "BOOTSTRAP", "path": "BOOTSTRAP", "type": "dir", "children": [{"name": "bs.html", "path": "BOOTSTRAP/bs.html", "type": "file", "ext": ".html"}, {"name": "day1", "path": "BOOTSTRAP/day1", "type": "dir", "children": [{"name": "assets", "path": "BOOTSTRAP/day1/assets", "type": "dir", "children": [{"name": "img", "path": "BOOTSTRAP/day1/assets/img", "type": "dir", "children": [{"name": "laptop.webp", "path": "BOOTSTRAP/day1/assets/img/laptop.webp", "type": "file", "ext": ".webp"}]}]}, {"name": "index1.html", "path": "BOOTSTRAP/day1/index1.html", "type": "file", "ext": ".html"}, {"name": "task1.html", "path": "BOOTSTRAP/day1/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "BOOTSTRAP/day1/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "BOOTSTRAP/day1/task3.html", "type": "file", "ext": ".html"}]}, {"name": "day2", "path": "BOOTSTRAP/day2", "type": "dir", "children": [{"name": "assets", "path": "BOOTSTRAP/day2/assets", "type": "dir", "children": [{"name": "images", "path": "BOOTSTRAP/day2/assets/images", "type": "dir", "children": [{"name": "1.png", "path": "BOOTSTRAP/day2/assets/images/1.png", "type": "file", "ext": ".png"}, {"name": "2.png", "path": "BOOTSTRAP/day2/assets/images/2.png", "type": "file", "ext": ".png"}, {"name": "3.png", "path": "BOOTSTRAP/day2/assets/images/3.png", "type": "file", "ext": ".png"}, {"name": "bird.jpg", "path": "BOOTSTRAP/day2/assets/images/bird.jpg", "type": "file", "ext": ".jpg"}, {"name": "cat.jpg", "path": "BOOTSTRAP/day2/assets/images/cat.jpg", "type": "file", "ext": ".jpg"}, {"name": "shitzu.jpg", "path": "BOOTSTRAP/day2/assets/images/shitzu.jpg", "type": "file", "ext": ".jpg"}]}]}, {"name": "index.html", "path": "BOOTSTRAP/day2/index.html", "type": "file", "ext": ".html"}]}]}, {"name": "CSS", "path": "CSS", "type": "dir", "children": [{"name": "css.html", "path": "CSS/css.html", "type": "file", "ext": ".html"}, {"name": "day1", "path": "CSS/day1", "type": "dir", "children": [{"name": "clngtask.html", "path": "CSS/day1/clngtask.html", "type": "file", "ext": ".html"}, {"name": "index.html", "path": "CSS/day1/index.html", "type": "file", "ext": ".html"}, {"name": "task1.html", "path": "CSS/day1/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day1/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day1/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day1/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day1/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day10", "path": "CSS/day10", "type": "dir", "children": [{"name": "assets", "path": "CSS/day10/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day10/assets/css", "type": "dir", "children": [{"name": "clng.css", "path": "CSS/day10/assets/css/clng.css", "type": "file", "ext": ".css"}, {"name": "style.css", "path": "CSS/day10/assets/css/style.css", "type": "file", "ext": ".css"}, {"name": "task1.css", "path": "CSS/day10/assets/css/task1.css", "type": "file", "ext": ".css"}, {"name": "task2.css", "path": "CSS/day10/assets/css/task2.css", "type": "file", "ext": ".css"}, {"name": "task3.css", "path": "CSS/day10/assets/css/task3.css", "type": "file", "ext": ".css"}, {"name": "task4.css", "path": "CSS/day10/assets/css/task4.css", "type": "file", "ext": ".css"}, {"name": "task5.css", "path": "CSS/day10/assets/css/task5.css", "type": "file", "ext": ".css"}]}, {"name": "images", "path": "CSS/day10/assets/images", "type": "dir", "children": [{"name": "img1.jpeg", "path": "CSS/day10/assets/images/img1.jpeg", "type": "file", "ext": ".jpeg"}, {"name": "img2.jpeg", "path": "CSS/day10/assets/images/img2.jpeg", "type": "file", "ext": ".jpeg"}, {"name": "img3.jpeg", "path": "CSS/day10/assets/images/img3.jpeg", "type": "file", "ext": ".jpeg"}, {"name": "img4.jpeg", "path": "CSS/day10/assets/images/img4.jpeg", "type": "file", "ext": ".jpeg"}]}]}, {"name": "clng.html", "path": "CSS/day10/clng.html", "type": "file", "ext": ".html"}, {"name": "index.html", "path": "CSS/day10/index.html", "type": "file", "ext": ".html"}, {"name": "task1.html", "path": "CSS/day10/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day10/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day10/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day10/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day10/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day2", "path": "CSS/day2", "type": "dir", "children": [{"name": "assets", "path": "CSS/day2/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day2/assets/css", "type": "dir", "children": [{"name": "chncompany.css", "path": "CSS/day2/assets/css/chncompany.css", "type": "file", "ext": ".css"}, {"name": "company.css", "path": "CSS/day2/assets/css/company.css", "type": "file", "ext": ".css"}, {"name": "hospital.css", "path": "CSS/day2/assets/css/hospital.css", "type": "file", "ext": ".css"}, {"name": "movie.css", "path": "CSS/day2/assets/css/movie.css", "type": "file", "ext": ".css"}, {"name": "style.css", "path": "CSS/day2/assets/css/style.css", "type": "file", "ext": ".css"}]}]}, {"name": "task1.html", "path": "CSS/day2/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day2/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day2/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day2/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day2/task5.html", "type": "file", "ext": ".html"}, {"name": "task6.html", "path": "CSS/day2/task6.html", "type": "file", "ext": ".html"}]}, {"name": "day3", "path": "CSS/day3", "type": "dir", "children": [{"name": "assets", "path": "CSS/day3/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day3/assets/css", "type": "dir", "children": [{"name": "boxmodel.css", "path": "CSS/day3/assets/css/boxmodel.css", "type": "file", "ext": ".css"}, {"name": "employee.css", "path": "CSS/day3/assets/css/employee.css", "type": "file", "ext": ".css"}, {"name": "minbox.css", "path": "CSS/day3/assets/css/minbox.css", "type": "file", "ext": ".css"}, {"name": "news.css", "path": "CSS/day3/assets/css/news.css", "type": "file", "ext": ".css"}, {"name": "product.css", "path": "CSS/day3/assets/css/product.css", "type": "file", "ext": ".css"}, {"name": "student.css", "path": "CSS/day3/assets/css/student.css", "type": "file", "ext": ".css"}]}, {"name": "images", "path": "CSS/day3/assets/images", "type": "dir", "children": [{"name": "accessories", "path": "CSS/day3/assets/images/accessories", "type": "dir", "children": [{"name": "belt.jpg", "path": "CSS/day3/assets/images/accessories/belt.jpg", "type": "file", "ext": ".jpg"}, {"name": "chain.jpg", "path": "CSS/day3/assets/images/accessories/chain.jpg", "type": "file", "ext": ".jpg"}, {"name": "watch.jpg", "path": "CSS/day3/assets/images/accessories/watch.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "dress", "path": "CSS/day3/assets/images/dress", "type": "dir", "children": [{"name": "pant.jpg", "path": "CSS/day3/assets/images/dress/pant.jpg", "type": "file", "ext": ".jpg"}, {"name": "shirt.jpg", "path": "CSS/day3/assets/images/dress/shirt.jpg", "type": "file", "ext": ".jpg"}, {"name": "tshirt.jpg", "path": "CSS/day3/assets/images/dress/tshirt.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "emplyee", "path": "CSS/day3/assets/images/emplyee", "type": "dir", "children": [{"name": "tcs.png", "path": "CSS/day3/assets/images/emplyee/tcs.png", "type": "file", "ext": ".png"}]}, {"name": "footwear", "path": "CSS/day3/assets/images/footwear", "type": "dir", "children": [{"name": "formals.jpg", "path": "CSS/day3/assets/images/footwear/formals.jpg", "type": "file", "ext": ".jpg"}, {"name": "sandel.jpg", "path": "CSS/day3/assets/images/footwear/sandel.jpg", "type": "file", "ext": ".jpg"}, {"name": "sneakers.jpg", "path": "CSS/day3/assets/images/footwear/sneakers.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "news", "path": "CSS/day3/assets/images/news", "type": "dir", "children": [{"name": "cskwin.jpg", "path": "CSS/day3/assets/images/news/cskwin.jpg", "type": "file", "ext": ".jpg"}, {"name": "spiderman.jpg", "path": "CSS/day3/assets/images/news/spiderman.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "student.png", "path": "CSS/day3/assets/images/student.png", "type": "file", "ext": ".png"}]}]}, {"name": "challenge.html", "path": "CSS/day3/challenge.html", "type": "file", "ext": ".html"}, {"name": "task1.html", "path": "CSS/day3/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day3/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day3/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day3/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day3/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day4", "path": "CSS/day4", "type": "dir", "children": [{"name": "assets", "path": "CSS/day4/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day4/assets/css", "type": "dir", "children": [{"name": "task1.css", "path": "CSS/day4/assets/css/task1.css", "type": "file", "ext": ".css"}, {"name": "task2.css", "path": "CSS/day4/assets/css/task2.css", "type": "file", "ext": ".css"}, {"name": "task3.css", "path": "CSS/day4/assets/css/task3.css", "type": "file", "ext": ".css"}, {"name": "task4.css", "path": "CSS/day4/assets/css/task4.css", "type": "file", "ext": ".css"}, {"name": "task5.css", "path": "CSS/day4/assets/css/task5.css", "type": "file", "ext": ".css"}]}]}, {"name": "task1.html", "path": "CSS/day4/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day4/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day4/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day4/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day4/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day5", "path": "CSS/day5", "type": "dir", "children": [{"name": "TEST.txt", "path": "CSS/day5/TEST.txt", "type": "file", "ext": ".txt"}, {"name": "assets", "path": "CSS/day5/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day5/assets/css", "type": "dir", "children": [{"name": "style.css", "path": "CSS/day5/assets/css/style.css", "type": "file", "ext": ".css"}, {"name": "task1.css", "path": "CSS/day5/assets/css/task1.css", "type": "file", "ext": ".css"}, {"name": "task2.css", "path": "CSS/day5/assets/css/task2.css", "type": "file", "ext": ".css"}, {"name": "task3.css", "path": "CSS/day5/assets/css/task3.css", "type": "file", "ext": ".css"}, {"name": "task5.css", "path": "CSS/day5/assets/css/task5.css", "type": "file", "ext": ".css"}]}, {"name": "images", "path": "CSS/day5/assets/images", "type": "dir", "children": [{"name": "Bluetooth Speaker.jpg", "path": "CSS/day5/assets/images/Bluetooth Speaker.jpg", "type": "file", "ext": ".jpg"}, {"name": "Headphones.jpg", "path": "CSS/day5/assets/images/Headphones.jpg", "type": "file", "ext": ".jpg"}, {"name": "Keyboard.jpg", "path": "CSS/day5/assets/images/Keyboard.jpg", "type": "file", "ext": ".jpg"}, {"name": "Power Bank.jpg", "path": "CSS/day5/assets/images/Power Bank.jpg", "type": "file", "ext": ".jpg"}, {"name": "Thamizhselvan.jpeg", "path": "CSS/day5/assets/images/Thamizhselvan.jpeg", "type": "file", "ext": ".jpeg"}, {"name": "Wireless Mouse.jpg", "path": "CSS/day5/assets/images/Wireless Mouse.jpg", "type": "file", "ext": ".jpg"}, {"name": "akash.jpeg", "path": "CSS/day5/assets/images/akash.jpeg", "type": "file", "ext": ".jpeg"}, {"name": "barathi.jpeg", "path": "CSS/day5/assets/images/barathi.jpeg", "type": "file", "ext": ".jpeg"}, {"name": "vicky.jpeg", "path": "CSS/day5/assets/images/vicky.jpeg", "type": "file", "ext": ".jpeg"}, {"name": "watch.jpg", "path": "CSS/day5/assets/images/watch.jpg", "type": "file", "ext": ".jpg"}]}]}, {"name": "task.html", "path": "CSS/day5/task.html", "type": "file", "ext": ".html"}, {"name": "task1.html", "path": "CSS/day5/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day5/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day5/task3.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day5/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day6", "path": "CSS/day6", "type": "dir", "children": [{"name": "assets", "path": "CSS/day6/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day6/assets/css", "type": "dir", "children": [{"name": "task1.css", "path": "CSS/day6/assets/css/task1.css", "type": "file", "ext": ".css"}, {"name": "task2.css", "path": "CSS/day6/assets/css/task2.css", "type": "file", "ext": ".css"}, {"name": "task3.css", "path": "CSS/day6/assets/css/task3.css", "type": "file", "ext": ".css"}, {"name": "task4.css", "path": "CSS/day6/assets/css/task4.css", "type": "file", "ext": ".css"}, {"name": "task5.css", "path": "CSS/day6/assets/css/task5.css", "type": "file", "ext": ".css"}]}]}, {"name": "task1.html", "path": "CSS/day6/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day6/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day6/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day6/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day6/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day7", "path": "CSS/day7", "type": "dir", "children": [{"name": "assets", "path": "CSS/day7/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day7/assets/css", "type": "dir", "children": [{"name": "task1.css", "path": "CSS/day7/assets/css/task1.css", "type": "file", "ext": ".css"}, {"name": "task2.css", "path": "CSS/day7/assets/css/task2.css", "type": "file", "ext": ".css"}, {"name": "task3.css", "path": "CSS/day7/assets/css/task3.css", "type": "file", "ext": ".css"}, {"name": "task4.css", "path": "CSS/day7/assets/css/task4.css", "type": "file", "ext": ".css"}]}]}, {"name": "task1.html", "path": "CSS/day7/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day7/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day7/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day7/task4.html", "type": "file", "ext": ".html"}]}, {"name": "day8", "path": "CSS/day8", "type": "dir", "children": [{"name": "assets", "path": "CSS/day8/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day8/assets/css", "type": "dir", "children": [{"name": "task1.css", "path": "CSS/day8/assets/css/task1.css", "type": "file", "ext": ".css"}, {"name": "task2.css", "path": "CSS/day8/assets/css/task2.css", "type": "file", "ext": ".css"}, {"name": "task3.css", "path": "CSS/day8/assets/css/task3.css", "type": "file", "ext": ".css"}, {"name": "task4.css", "path": "CSS/day8/assets/css/task4.css", "type": "file", "ext": ".css"}, {"name": "task5.css", "path": "CSS/day8/assets/css/task5.css", "type": "file", "ext": ".css"}]}]}, {"name": "task1.html", "path": "CSS/day8/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day8/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day8/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day8/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day8/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day9", "path": "CSS/day9", "type": "dir", "children": [{"name": "assets", "path": "CSS/day9/assets", "type": "dir", "children": [{"name": "css", "path": "CSS/day9/assets/css", "type": "dir", "children": [{"name": "task1.css", "path": "CSS/day9/assets/css/task1.css", "type": "file", "ext": ".css"}, {"name": "task2.css", "path": "CSS/day9/assets/css/task2.css", "type": "file", "ext": ".css"}, {"name": "task3.css", "path": "CSS/day9/assets/css/task3.css", "type": "file", "ext": ".css"}, {"name": "task4.css", "path": "CSS/day9/assets/css/task4.css", "type": "file", "ext": ".css"}, {"name": "task5.css", "path": "CSS/day9/assets/css/task5.css", "type": "file", "ext": ".css"}]}]}, {"name": "task1.html", "path": "CSS/day9/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "CSS/day9/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "CSS/day9/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "CSS/day9/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "CSS/day9/task5.html", "type": "file", "ext": ".html"}]}]}, {"name": "HTML", "path": "HTML", "type": "dir", "children": [{"name": "Day1", "path": "HTML/Day1", "type": "dir", "children": [{"name": "Task", "path": "HTML/Day1/Task", "type": "dir", "children": [{"name": "index.html", "path": "HTML/Day1/Task/index.html", "type": "file", "ext": ".html"}]}]}, {"name": "day10", "path": "HTML/day10", "type": "dir", "children": [{"name": "gia.jpg", "path": "HTML/day10/gia.jpg", "type": "file", "ext": ".jpg"}, {"name": "kashmir.jpg", "path": "HTML/day10/kashmir.jpg", "type": "file", "ext": ".jpg"}, {"name": "kerala.jpg", "path": "HTML/day10/kerala.jpg", "type": "file", "ext": ".jpg"}, {"name": "task1.html", "path": "HTML/day10/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "HTML/day10/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "HTML/day10/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "HTML/day10/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "HTML/day10/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day11", "path": "HTML/day11", "type": "dir", "children": [{"name": "assets", "path": "HTML/day11/assets", "type": "dir", "children": [{"name": "audio", "path": "HTML/day11/assets/audio", "type": "dir", "children": [{"name": "20060108040738-356.mp3", "path": "HTML/day11/assets/audio/20060108040738-356.mp3", "type": "file", "ext": ".mp3"}, {"name": "excuse-me-boss-nokia-578.mp3", "path": "HTML/day11/assets/audio/excuse-me-boss-nokia-578.mp3", "type": "file", "ext": ".mp3"}]}, {"name": "images", "path": "HTML/day11/assets/images", "type": "dir", "children": [{"name": "bleach.jpg", "path": "HTML/day11/assets/images/bleach.jpg", "type": "file", "ext": ".jpg"}, {"name": "demon.jpg", "path": "HTML/day11/assets/images/demon.jpg", "type": "file", "ext": ".jpg"}, {"name": "doremon.jpg", "path": "HTML/day11/assets/images/doremon.jpg", "type": "file", "ext": ".jpg"}, {"name": "naruto.jpg", "path": "HTML/day11/assets/images/naruto.jpg", "type": "file", "ext": ".jpg"}, {"name": "onepiece.jpg", "path": "HTML/day11/assets/images/onepiece.jpg", "type": "file", "ext": ".jpg"}, {"name": "solo.jpg", "path": "HTML/day11/assets/images/solo.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "pdf", "path": "HTML/day11/assets/pdf", "type": "dir", "children": [{"name": "220E4B - Statistics II - Important Problems.pdf", "path": "HTML/day11/assets/pdf/220E4B - Statistics II - Important Problems.pdf", "type": "file", "ext": ".pdf"}]}, {"name": "video", "path": "HTML/day11/assets/video", "type": "dir", "children": [{"name": "Doraemon title song in tamil.mp4", "path": "HTML/day11/assets/video/Doraemon title song in tamil.mp4", "type": "file", "ext": ".mp4"}]}]}, {"name": "task1.html", "path": "HTML/day11/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "HTML/day11/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "HTML/day11/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "HTML/day11/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "HTML/day11/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day2", "path": "HTML/day2", "type": "dir", "children": [{"name": "task", "path": "HTML/day2/task", "type": "dir", "children": [{"name": "Alabasta.jpg", "path": "HTML/day2/task/Alabasta.jpg", "type": "file", "ext": ".jpg"}, {"name": "Enies Lobby.jpg", "path": "HTML/day2/task/Enies Lobby.jpg", "type": "file", "ext": ".jpg"}, {"name": "Jaya Arc.jpg", "path": "HTML/day2/task/Jaya Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Little Garden Arc.jpg", "path": "HTML/day2/task/Little Garden Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Loguetown.jpg", "path": "HTML/day2/task/Loguetown.jpg", "type": "file", "ext": ".jpg"}, {"name": "One Piece Vol_ 4.jpg", "path": "HTML/day2/task/One Piece Vol_ 4.jpg", "type": "file", "ext": ".jpg"}, {"name": "Orange Town_Buggy Arc.jpg", "path": "HTML/day2/task/Orange Town_Buggy Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Post-War Arc.jpg", "path": "HTML/day2/task/Post-War Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Return to Sabaody Arc.jpg", "path": "HTML/day2/task/Return to Sabaody Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Reverse Mountain.jpg", "path": "HTML/day2/task/Reverse Mountain.jpg", "type": "file", "ext": ".jpg"}, {"name": "Romance Dawn Arc.jpg", "path": "HTML/day2/task/Romance Dawn Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Sabaody Archipelago Arc.jpg", "path": "HTML/day2/task/Sabaody Archipelago Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Skypiea Arc Cover.jpg", "path": "HTML/day2/task/Skypiea Arc Cover.jpg", "type": "file", "ext": ".jpg"}, {"name": "Straw Hats.jpg", "path": "HTML/day2/task/Straw Hats.jpg", "type": "file", "ext": ".jpg"}, {"name": "Water 7 Arc.jpg", "path": "HTML/day2/task/Water 7 Arc.jpg", "type": "file", "ext": ".jpg"}, {"name": "Whishkey Peak island.jpg", "path": "HTML/day2/task/Whishkey Peak island.jpg", "type": "file", "ext": ".jpg"}, {"name": "Whisky Peak.jpg", "path": "HTML/day2/task/Whisky Peak.jpg", "type": "file", "ext": ".jpg"}, {"name": "Zou.jpg", "path": "HTML/day2/task/Zou.jpg", "type": "file", "ext": ".jpg"}, {"name": "amazon.jpg", "path": "HTML/day2/task/amazon.jpg", "type": "file", "ext": ".jpg"}, {"name": "arlong.jpg", "path": "HTML/day2/task/arlong.jpg", "type": "file", "ext": ".jpg"}, {"name": "baratie.jpg", "path": "HTML/day2/task/baratie.jpg", "type": "file", "ext": ".jpg"}, {"name": "dressrosa_.jpg", "path": "HTML/day2/task/dressrosa_.jpg", "type": "file", "ext": ".jpg"}, {"name": "drumisland.jpg", "path": "HTML/day2/task/drumisland.jpg", "type": "file", "ext": ".jpg"}, {"name": "egghead.jpg", "path": "HTML/day2/task/egghead.jpg", "type": "file", "ext": ".jpg"}, {"name": "elbaf.jpg", "path": "HTML/day2/task/elbaf.jpg", "type": "file", "ext": ".jpg"}, {"name": "fishman.jpg", "path": "HTML/day2/task/fishman.jpg", "type": "file", "ext": ".jpg"}, {"name": "impeldown.jpg", "path": "HTML/day2/task/impeldown.jpg", "type": "file", "ext": ".jpg"}, {"name": "index.html", "path": "HTML/day2/task/index.html", "type": "file", "ext": ".html"}, {"name": "lrll.jpg", "path": "HTML/day2/task/lrll.jpg", "type": "file", "ext": ".jpg"}, {"name": "marineford.jpg", "path": "HTML/day2/task/marineford.jpg", "type": "file", "ext": ".jpg"}, {"name": "postenies.jpg", "path": "HTML/day2/task/postenies.jpg", "type": "file", "ext": ".jpg"}, {"name": "punkhazard.jpg", "path": "HTML/day2/task/punkhazard.jpg", "type": "file", "ext": ".jpg"}, {"name": "thriller.jpg", "path": "HTML/day2/task/thriller.jpg", "type": "file", "ext": ".jpg"}, {"name": "wano.jpg", "path": "HTML/day2/task/wano.jpg", "type": "file", "ext": ".jpg"}, {"name": "wholecake.jpg", "path": "HTML/day2/task/wholecake.jpg", "type": "file", "ext": ".jpg"}]}]}, {"name": "day3", "path": "HTML/day3", "type": "dir", "children": [{"name": "What is HTML.txt", "path": "HTML/day3/What is HTML.txt", "type": "file", "ext": ".txt"}, {"name": "company.html", "path": "HTML/day3/company.html", "type": "file", "ext": ".html"}, {"name": "profile.html", "path": "HTML/day3/profile.html", "type": "file", "ext": ".html"}]}, {"name": "day4", "path": "HTML/day4", "type": "dir", "children": [{"name": "block.html", "path": "HTML/day4/block.html", "type": "file", "ext": ".html"}, {"name": "file.html", "path": "HTML/day4/file.html", "type": "file", "ext": ".html"}, {"name": "format.html", "path": "HTML/day4/format.html", "type": "file", "ext": ".html"}, {"name": "images.jpg", "path": "HTML/day4/images.jpg", "type": "file", "ext": ".jpg"}, {"name": "inline.html", "path": "HTML/day4/inline.html", "type": "file", "ext": ".html"}, {"name": "interactive.html", "path": "HTML/day4/interactive.html", "type": "file", "ext": ".html"}]}, {"name": "day5", "path": "HTML/day5", "type": "dir", "children": [{"name": "sementic_tags.txt", "path": "HTML/day5/sementic_tags.txt", "type": "file", "ext": ".txt"}, {"name": "task1.html", "path": "HTML/day5/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "HTML/day5/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "HTML/day5/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "HTML/day5/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "HTML/day5/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day6", "path": "HTML/day6", "type": "dir", "children": [{"name": "220E4B - Statistics II - Important Problems (1).pdf", "path": "HTML/day6/220E4B - Statistics II - Important Problems (1).pdf", "type": "file", "ext": ".pdf"}, {"name": "Actor Vijay.jpg", "path": "HTML/day6/Actor Vijay.jpg", "type": "file", "ext": ".jpg"}, {"name": "assesment.html", "path": "HTML/day6/assesment.html", "type": "file", "ext": ".html"}, {"name": "bike.jpg", "path": "HTML/day6/bike.jpg", "type": "file", "ext": ".jpg"}, {"name": "car.jpg", "path": "HTML/day6/car.jpg", "type": "file", "ext": ".jpg"}, {"name": "collegewebsite.html", "path": "HTML/day6/collegewebsite.html", "type": "file", "ext": ".html"}, {"name": "googlelink.html", "path": "HTML/day6/googlelink.html", "type": "file", "ext": ".html"}, {"name": "hill.jpg", "path": "HTML/day6/hill.jpg", "type": "file", "ext": ".jpg"}, {"name": "imagegallery.html", "path": "HTML/day6/imagegallery.html", "type": "file", "ext": ".html"}, {"name": "images.jpg", "path": "HTML/day6/images.jpg", "type": "file", "ext": ".jpg"}, {"name": "images.png", "path": "HTML/day6/images.png", "type": "file", "ext": ".png"}, {"name": "logo.svg", "path": "HTML/day6/logo.svg", "type": "file", "ext": ".svg"}, {"name": "mobile.jpg", "path": "HTML/day6/mobile.jpg", "type": "file", "ext": ".jpg"}, {"name": "nature.jpg", "path": "HTML/day6/nature.jpg", "type": "file", "ext": ".jpg"}, {"name": "newtablink.html", "path": "HTML/day6/newtablink.html", "type": "file", "ext": ".html"}, {"name": "student.png", "path": "HTML/day6/student.png", "type": "file", "ext": ".png"}, {"name": "studentprofile.html", "path": "HTML/day6/studentprofile.html", "type": "file", "ext": ".html"}]}, {"name": "day7", "path": "HTML/day7", "type": "dir", "children": [{"name": "assetss", "path": "HTML/day7/assetss", "type": "dir", "children": [{"name": "images", "path": "HTML/day7/assetss/images", "type": "dir", "children": [{"name": "bagalore", "path": "HTML/day7/assetss/images/bagalore", "type": "dir", "children": [{"name": "Google.jpg", "path": "HTML/day7/assetss/images/bagalore/Google.jpg", "type": "file", "ext": ".jpg"}, {"name": "blr.IT.jpg", "path": "HTML/day7/assetss/images/bagalore/blr.IT.jpg", "type": "file", "ext": ".jpg"}, {"name": "infosys.avif", "path": "HTML/day7/assetss/images/bagalore/infosys.avif", "type": "file", "ext": ".avif"}, {"name": "microsoft.jpg", "path": "HTML/day7/assetss/images/bagalore/microsoft.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "banner", "path": "HTML/day7/assetss/images/banner", "type": "dir", "children": [{"name": "banner.jpg", "path": "HTML/day7/assetss/images/banner/banner.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "chennai", "path": "HTML/day7/assetss/images/chennai", "type": "dir", "children": [{"name": "TCS.jpg", "path": "HTML/day7/assetss/images/chennai/TCS.jpg", "type": "file", "ext": ".jpg"}, {"name": "chn.IT.avif", "path": "HTML/day7/assetss/images/chennai/chn.IT.avif", "type": "file", "ext": ".avif"}, {"name": "freshworks.jpg", "path": "HTML/day7/assetss/images/chennai/freshworks.jpg", "type": "file", "ext": ".jpg"}, {"name": "zoho.jpg", "path": "HTML/day7/assetss/images/chennai/zoho.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "hyderabad", "path": "HTML/day7/assetss/images/hyderabad", "type": "dir", "children": [{"name": "amazon.jpg", "path": "HTML/day7/assetss/images/hyderabad/amazon.jpg", "type": "file", "ext": ".jpg"}, {"name": "hyd.IT.webp", "path": "HTML/day7/assetss/images/hyderabad/hyd.IT.webp", "type": "file", "ext": ".webp"}, {"name": "oracle.png", "path": "HTML/day7/assetss/images/hyderabad/oracle.png", "type": "file", "ext": ".png"}, {"name": "wipro.avif", "path": "HTML/day7/assetss/images/hyderabad/wipro.avif", "type": "file", "ext": ".avif"}]}, {"name": "indian constitution", "path": "HTML/day7/assetss/images/indian constitution", "type": "dir", "children": [{"name": "ambedkar.jpg", "path": "HTML/day7/assetss/images/indian constitution/ambedkar.jpg", "type": "file", "ext": ".jpg"}, {"name": "banner", "path": "HTML/day7/assetss/images/indian constitution/banner", "type": "dir", "children": [{"name": "banner.jpg", "path": "HTML/day7/assetss/images/indian constitution/banner/banner.jpg", "type": "file", "ext": ".jpg"}]}, {"name": "logo", "path": "HTML/day7/assetss/images/indian constitution/logo", "type": "dir", "children": [{"name": "logo.jpg", "path": "HTML/day7/assetss/images/indian constitution/logo/logo.jpg", "type": "file", "ext": ".jpg"}]}]}, {"name": "logo", "path": "HTML/day7/assetss/images/logo", "type": "dir", "children": [{"name": "logo.jpg", "path": "HTML/day7/assetss/images/logo/logo.jpg", "type": "file", "ext": ".jpg"}]}]}]}, {"name": "index.html", "path": "HTML/day7/index.html", "type": "file", "ext": ".html"}, {"name": "index2.html", "path": "HTML/day7/index2.html", "type": "file", "ext": ".html"}, {"name": "page2.html", "path": "HTML/day7/page2.html", "type": "dir", "children": [{"name": "duty.html", "path": "HTML/day7/page2.html/duty.html", "type": "file", "ext": ".html"}, {"name": "feature.html", "path": "HTML/day7/page2.html/feature.html", "type": "file", "ext": ".html"}, {"name": "rights.html", "path": "HTML/day7/page2.html/rights.html", "type": "file", "ext": ".html"}]}, {"name": "pages", "path": "HTML/day7/pages", "type": "dir", "children": [{"name": "blr.html", "path": "HTML/day7/pages/blr.html", "type": "file", "ext": ".html"}, {"name": "chn.html", "path": "HTML/day7/pages/chn.html", "type": "file", "ext": ".html"}, {"name": "hyd.html", "path": "HTML/day7/pages/hyd.html", "type": "file", "ext": ".html"}]}]}, {"name": "day8", "path": "HTML/day8", "type": "dir", "children": [{"name": "contact.html", "path": "HTML/day8/contact.html", "type": "file", "ext": ".html"}, {"name": "feedback.html", "path": "HTML/day8/feedback.html", "type": "file", "ext": ".html"}, {"name": "job.html", "path": "HTML/day8/job.html", "type": "file", "ext": ".html"}, {"name": "login.html", "path": "HTML/day8/login.html", "type": "file", "ext": ".html"}, {"name": "register.html", "path": "HTML/day8/register.html", "type": "file", "ext": ".html"}]}, {"name": "day9", "path": "HTML/day9", "type": "dir", "children": [{"name": "admission.html", "path": "HTML/day9/admission.html", "type": "dir", "children": [{"name": "form.html", "path": "HTML/day9/admission.html/form.html", "type": "file", "ext": ".html"}]}, {"name": "employee_detail", "path": "HTML/day9/employee_detail", "type": "dir", "children": [{"name": "form.html", "path": "HTML/day9/employee_detail/form.html", "type": "file", "ext": ".html"}]}, {"name": "patient_details", "path": "HTML/day9/patient_details", "type": "dir", "children": [{"name": "form.html", "path": "HTML/day9/patient_details/form.html", "type": "file", "ext": ".html"}]}, {"name": "product.html", "path": "HTML/day9/product.html", "type": "dir", "children": [{"name": "form.html", "path": "HTML/day9/product.html/form.html", "type": "file", "ext": ".html"}]}, {"name": "studentdetail", "path": "HTML/day9/studentdetail", "type": "dir", "children": [{"name": "form.html", "path": "HTML/day9/studentdetail/form.html", "type": "file", "ext": ".html"}]}]}, {"name": "html.html", "path": "HTML/html.html", "type": "file", "ext": ".html"}]}, {"name": "JAVASCRIPT", "path": "JAVASCRIPT", "type": "dir", "children": [{"name": "day1", "path": "JAVASCRIPT/day1", "type": "dir", "children": [{"name": "javascript Q&A.txt", "path": "JAVASCRIPT/day1/javascript Q&A.txt", "type": "file", "ext": ".txt"}, {"name": "variable_names.txt", "path": "JAVASCRIPT/day1/variable_names.txt", "type": "file", "ext": ".txt"}]}, {"name": "day10", "path": "JAVASCRIPT/day10", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day10/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day10/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task10.js", "path": "JAVASCRIPT/day10/assets/task10.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day10/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day10/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day10/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day10/assets/task5.js", "type": "file", "ext": ".js"}, {"name": "task6.js", "path": "JAVASCRIPT/day10/assets/task6.js", "type": "file", "ext": ".js"}, {"name": "task7.js", "path": "JAVASCRIPT/day10/assets/task7.js", "type": "file", "ext": ".js"}, {"name": "task8.js", "path": "JAVASCRIPT/day10/assets/task8.js", "type": "file", "ext": ".js"}, {"name": "task9.js", "path": "JAVASCRIPT/day10/assets/task9.js", "type": "file", "ext": ".js"}]}, {"name": "projectday10", "path": "JAVASCRIPT/day10/projectday10", "type": "dir", "children": [{"name": "index.html", "path": "JAVASCRIPT/day10/projectday10/index.html", "type": "file", "ext": ".html"}]}, {"name": "task1.html", "path": "JAVASCRIPT/day10/task1.html", "type": "file", "ext": ".html"}, {"name": "task10.html", "path": "JAVASCRIPT/day10/task10.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "JAVASCRIPT/day10/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "JAVASCRIPT/day10/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "JAVASCRIPT/day10/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "JAVASCRIPT/day10/task5.html", "type": "file", "ext": ".html"}, {"name": "task6.html", "path": "JAVASCRIPT/day10/task6.html", "type": "file", "ext": ".html"}, {"name": "task7.html", "path": "JAVASCRIPT/day10/task7.html", "type": "file", "ext": ".html"}, {"name": "task8.html", "path": "JAVASCRIPT/day10/task8.html", "type": "file", "ext": ".html"}, {"name": "task9.html", "path": "JAVASCRIPT/day10/task9.html", "type": "file", "ext": ".html"}]}, {"name": "day11", "path": "JAVASCRIPT/day11", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day11/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day11/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day11/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day11/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day11/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day11/assets/task5.js", "type": "file", "ext": ".js"}, {"name": "task6.js", "path": "JAVASCRIPT/day11/assets/task6.js", "type": "file", "ext": ".js"}]}, {"name": "task1.html", "path": "JAVASCRIPT/day11/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "JAVASCRIPT/day11/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "JAVASCRIPT/day11/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "JAVASCRIPT/day11/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "JAVASCRIPT/day11/task5.html", "type": "file", "ext": ".html"}, {"name": "task6.html", "path": "JAVASCRIPT/day11/task6.html", "type": "file", "ext": ".html"}]}, {"name": "day13", "path": "JAVASCRIPT/day13", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day13/assets", "type": "dir", "children": [{"name": "java.js", "path": "JAVASCRIPT/day13/assets/java.js", "type": "file", "ext": ".js"}]}, {"name": "index.html", "path": "JAVASCRIPT/day13/index.html", "type": "file", "ext": ".html"}]}, {"name": "day2", "path": "JAVASCRIPT/day2", "type": "dir", "children": [{"name": "DATA TYPE.txt", "path": "JAVASCRIPT/day2/DATA TYPE.txt", "type": "file", "ext": ".txt"}, {"name": "assets", "path": "JAVASCRIPT/day2/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day2/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day2/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day2/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day2/assets/task4.js", "type": "file", "ext": ".js"}]}, {"name": "index.html", "path": "JAVASCRIPT/day2/index.html", "type": "file", "ext": ".html"}]}, {"name": "day3", "path": "JAVASCRIPT/day3", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day3/assets", "type": "dir", "children": [{"name": "bonus.js", "path": "JAVASCRIPT/day3/assets/bonus.js", "type": "file", "ext": ".js"}, {"name": "task1.js", "path": "JAVASCRIPT/day3/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day3/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day3/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day3/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day3/assets/task5.js", "type": "file", "ext": ".js"}]}, {"name": "index.html", "path": "JAVASCRIPT/day3/index.html", "type": "file", "ext": ".html"}]}, {"name": "day4", "path": "JAVASCRIPT/day4", "type": "dir", "children": [{"name": "agecheck.html", "path": "JAVASCRIPT/day4/agecheck.html", "type": "file", "ext": ".html"}, {"name": "assets", "path": "JAVASCRIPT/day4/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day4/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day4/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day4/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day4/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day4/assets/task5.js", "type": "file", "ext": ".js"}]}, {"name": "daycheck.html", "path": "JAVASCRIPT/day4/daycheck.html", "type": "file", "ext": ".html"}, {"name": "evenodd.html", "path": "JAVASCRIPT/day4/evenodd.html", "type": "file", "ext": ".html"}, {"name": "logincheck.html", "path": "JAVASCRIPT/day4/logincheck.html", "type": "file", "ext": ".html"}, {"name": "markgrade.html", "path": "JAVASCRIPT/day4/markgrade.html", "type": "file", "ext": ".html"}]}, {"name": "day5", "path": "JAVASCRIPT/day5", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day5/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day5/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task10.js", "path": "JAVASCRIPT/day5/assets/task10.js", "type": "file", "ext": ".js"}, {"name": "task11.js", "path": "JAVASCRIPT/day5/assets/task11.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day5/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day5/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day5/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day5/assets/task5.js", "type": "file", "ext": ".js"}, {"name": "task6.js", "path": "JAVASCRIPT/day5/assets/task6.js", "type": "file", "ext": ".js"}, {"name": "task7.js", "path": "JAVASCRIPT/day5/assets/task7.js", "type": "file", "ext": ".js"}, {"name": "task8.js", "path": "JAVASCRIPT/day5/assets/task8.js", "type": "file", "ext": ".js"}, {"name": "task9.js", "path": "JAVASCRIPT/day5/assets/task9.js", "type": "file", "ext": ".js"}]}, {"name": "task1.html", "path": "JAVASCRIPT/day5/task1.html", "type": "file", "ext": ".html"}, {"name": "task10.html", "path": "JAVASCRIPT/day5/task10.html", "type": "file", "ext": ".html"}, {"name": "task11.html", "path": "JAVASCRIPT/day5/task11.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "JAVASCRIPT/day5/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "JAVASCRIPT/day5/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "JAVASCRIPT/day5/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "JAVASCRIPT/day5/task5.html", "type": "file", "ext": ".html"}, {"name": "task6.html", "path": "JAVASCRIPT/day5/task6.html", "type": "file", "ext": ".html"}, {"name": "task7.html", "path": "JAVASCRIPT/day5/task7.html", "type": "file", "ext": ".html"}, {"name": "task8.html", "path": "JAVASCRIPT/day5/task8.html", "type": "file", "ext": ".html"}, {"name": "task9.html", "path": "JAVASCRIPT/day5/task9.html", "type": "file", "ext": ".html"}]}, {"name": "day6", "path": "JAVASCRIPT/day6", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day6/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day6/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task10.js", "path": "JAVASCRIPT/day6/assets/task10.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day6/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day6/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day6/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day6/assets/task5.js", "type": "file", "ext": ".js"}, {"name": "task6.js", "path": "JAVASCRIPT/day6/assets/task6.js", "type": "file", "ext": ".js"}, {"name": "task7.js", "path": "JAVASCRIPT/day6/assets/task7.js", "type": "file", "ext": ".js"}, {"name": "task8.js", "path": "JAVASCRIPT/day6/assets/task8.js", "type": "file", "ext": ".js"}, {"name": "task9.js", "path": "JAVASCRIPT/day6/assets/task9.js", "type": "file", "ext": ".js"}]}, {"name": "task1.html", "path": "JAVASCRIPT/day6/task1.html", "type": "file", "ext": ".html"}, {"name": "task10.html", "path": "JAVASCRIPT/day6/task10.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "JAVASCRIPT/day6/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "JAVASCRIPT/day6/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "JAVASCRIPT/day6/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "JAVASCRIPT/day6/task5.html", "type": "file", "ext": ".html"}, {"name": "task6.html", "path": "JAVASCRIPT/day6/task6.html", "type": "file", "ext": ".html"}, {"name": "task7.html", "path": "JAVASCRIPT/day6/task7.html", "type": "file", "ext": ".html"}, {"name": "task8.html", "path": "JAVASCRIPT/day6/task8.html", "type": "file", "ext": ".html"}, {"name": "task9.html", "path": "JAVASCRIPT/day6/task9.html", "type": "file", "ext": ".html"}]}, {"name": "day7", "path": "JAVASCRIPT/day7", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day7/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day7/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day7/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day7/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day7/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day7/assets/task5.js", "type": "file", "ext": ".js"}]}, {"name": "task1.html", "path": "JAVASCRIPT/day7/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "JAVASCRIPT/day7/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "JAVASCRIPT/day7/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "JAVASCRIPT/day7/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "JAVASCRIPT/day7/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day8", "path": "JAVASCRIPT/day8", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day8/assets", "type": "dir", "children": [{"name": "practice.js", "path": "JAVASCRIPT/day8/assets/practice.js", "type": "file", "ext": ".js"}, {"name": "task1.js", "path": "JAVASCRIPT/day8/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day8/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day8/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day8/assets/task4.js", "type": "file", "ext": ".js"}]}, {"name": "task1.html", "path": "JAVASCRIPT/day8/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "JAVASCRIPT/day8/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "JAVASCRIPT/day8/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "JAVASCRIPT/day8/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "JAVASCRIPT/day8/task5.html", "type": "file", "ext": ".html"}]}, {"name": "day9", "path": "JAVASCRIPT/day9", "type": "dir", "children": [{"name": "assets", "path": "JAVASCRIPT/day9/assets", "type": "dir", "children": [{"name": "task1.js", "path": "JAVASCRIPT/day9/assets/task1.js", "type": "file", "ext": ".js"}, {"name": "task2.js", "path": "JAVASCRIPT/day9/assets/task2.js", "type": "file", "ext": ".js"}, {"name": "task3.js", "path": "JAVASCRIPT/day9/assets/task3.js", "type": "file", "ext": ".js"}, {"name": "task4.js", "path": "JAVASCRIPT/day9/assets/task4.js", "type": "file", "ext": ".js"}, {"name": "task5.js", "path": "JAVASCRIPT/day9/assets/task5.js", "type": "file", "ext": ".js"}]}, {"name": "task1.html", "path": "JAVASCRIPT/day9/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "JAVASCRIPT/day9/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "JAVASCRIPT/day9/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "JAVASCRIPT/day9/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "JAVASCRIPT/day9/task5.html", "type": "file", "ext": ".html"}]}, {"name": "js.html", "path": "JAVASCRIPT/js.html", "type": "file", "ext": ".html"}, {"name": "test", "path": "JAVASCRIPT/test", "type": "dir", "children": [{"name": "JAVASCRIPT TEST.txt", "path": "JAVASCRIPT/test/JAVASCRIPT TEST.txt", "type": "file", "ext": ".txt"}, {"name": "assets", "path": "JAVASCRIPT/test/assets", "type": "dir", "children": [{"name": "test.js", "path": "JAVASCRIPT/test/assets/test.js", "type": "file", "ext": ".js"}]}, {"name": "test.html", "path": "JAVASCRIPT/test/test.html", "type": "file", "ext": ".html"}]}]}, {"name": "TAILWINDS", "path": "TAILWINDS", "type": "dir", "children": [{"name": "day1", "path": "TAILWINDS/day1", "type": "dir", "children": [{"name": "index.html", "path": "TAILWINDS/day1/index.html", "type": "file", "ext": ".html"}]}, {"name": "day2", "path": "TAILWINDS/day2", "type": "dir", "children": [{"name": "assets", "path": "TAILWINDS/day2/assets", "type": "dir", "children": [{"name": "css", "path": "TAILWINDS/day2/assets/css", "type": "dir", "children": [{"name": "style.css", "path": "TAILWINDS/day2/assets/css/style.css", "type": "file", "ext": ".css"}]}, {"name": "images", "path": "TAILWINDS/day2/assets/images", "type": "dir", "children": [{"name": "certificate-badge.svg", "path": "TAILWINDS/day2/assets/images/certificate-badge.svg", "type": "file", "ext": ".svg"}, {"name": "logo.svg", "path": "TAILWINDS/day2/assets/images/logo.svg", "type": "file", "ext": ".svg"}]}, {"name": "js", "path": "TAILWINDS/day2/assets/js", "type": "dir", "children": [{"name": "courses.js", "path": "TAILWINDS/day2/assets/js/courses.js", "type": "file", "ext": ".js"}, {"name": "main.js", "path": "TAILWINDS/day2/assets/js/main.js", "type": "file", "ext": ".js"}]}]}, {"name": "course-detail.html", "path": "TAILWINDS/day2/course-detail.html", "type": "file", "ext": ".html"}, {"name": "courses.html", "path": "TAILWINDS/day2/courses.html", "type": "file", "ext": ".html"}, {"name": "index.html", "path": "TAILWINDS/day2/index.html", "type": "file", "ext": ".html"}]}, {"name": "day3", "path": "TAILWINDS/day3", "type": "dir", "children": [{"name": "task1.html", "path": "TAILWINDS/day3/task1.html", "type": "file", "ext": ".html"}, {"name": "task2.html", "path": "TAILWINDS/day3/task2.html", "type": "file", "ext": ".html"}, {"name": "task3.html", "path": "TAILWINDS/day3/task3.html", "type": "file", "ext": ".html"}, {"name": "task4.html", "path": "TAILWINDS/day3/task4.html", "type": "file", "ext": ".html"}, {"name": "task5.html", "path": "TAILWINDS/day3/task5.html", "type": "file", "ext": ".html"}]}]}, {"name": "article", "path": "article", "type": "dir", "children": [{"name": "assets", "path": "article/assets", "type": "dir", "children": [{"name": "css", "path": "article/assets/css", "type": "dir", "children": [{"name": "style.css", "path": "article/assets/css/style.css", "type": "file", "ext": ".css"}]}, {"name": "images", "path": "article/assets/images", "type": "dir", "children": [{"name": "certificate-badge.svg", "path": "article/assets/images/certificate-badge.svg", "type": "file", "ext": ".svg"}, {"name": "logo.svg", "path": "article/assets/images/logo.svg", "type": "file", "ext": ".svg"}]}, {"name": "js", "path": "article/assets/js", "type": "dir", "children": [{"name": "courses.js", "path": "article/assets/js/courses.js", "type": "file", "ext": ".js"}, {"name": "main.js", "path": "article/assets/js/main.js", "type": "file", "ext": ".js"}]}]}, {"name": "course-detail.html", "path": "article/course-detail.html", "type": "file", "ext": ".html"}, {"name": "courses.html", "path": "article/courses.html", "type": "file", "ext": ".html"}, {"name": "index.html", "path": "article/index.html", "type": "file", "ext": ".html"}]}, {"name": "index.html", "path": "index.html", "type": "file", "ext": ".html"}, {"name": "task", "path": "task", "type": "dir", "children": [{"name": "article.html", "path": "task/article.html", "type": "file", "ext": ".html"}, {"name": "assets", "path": "task/assets", "type": "dir", "children": [{"name": "images", "path": "task/assets/images", "type": "dir", "children": [{"name": "bg.jpg", "path": "task/assets/images/bg.jpg", "type": "file", "ext": ".jpg"}, {"name": "slalogo.png", "path": "task/assets/images/slalogo.png", "type": "file", "ext": ".png"}]}]}]}];
+    
+    // Flat list of all executable files for random launcher and instant lookup
+    const ALL_FILES = [];
+    CURRICULUM.forEach(cat => {
+      cat.days.forEach(day => {
+        day.files.forEach(file => {
+          ALL_FILES.push({
+            ...file,
+            category: cat.id,
+            categoryTitle: cat.title,
+            day: day.day,
+            topic: day.topic
+          });
+        });
+      });
+    });
+
+    // State management
+    let activeFilter = 'all';
+    let searchQuery = '';
+    let currentView = 'curriculum'; // 'overview', 'curriculum', 'tree'
+
+    // DOM Elements
+    const globalSearch = document.getElementById('globalSearch');
+    const folderCardsGrid = document.getElementById('folderCardsGrid');
+    const curriculumContainer = document.getElementById('curriculumContainer');
+    const treeContainer = document.getElementById('treeContainer');
+    const searchFeedback = document.getElementById('searchFeedback');
+    const searchFeedbackText = document.getElementById('searchFeedbackText');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+
+    // View toggles
+    const viewOverviewBtn = document.getElementById('viewOverviewBtn');
+    const viewCurriculumBtn = document.getElementById('viewCurriculumBtn');
+    const viewTreeBtn = document.getElementById('viewTreeBtn');
+    const overviewView = document.getElementById('overviewView');
+    const curriculumView = document.getElementById('curriculumView');
+    const treeView = document.getElementById('treeView');
+
+    // Preview Modal Elements
+    const previewModal = document.getElementById('previewModal');
+    const previewIframe = document.getElementById('previewIframe');
+    const iframeWrapper = document.getElementById('iframeWrapper');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPath = document.getElementById('modalPath');
+    const modalExternalLink = document.getElementById('modalExternalLink');
+    const modalReloadBtn = document.getElementById('modalReloadBtn');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const randomBtn = document.getElementById('randomBtn');
+
+    // Viewport controls
+    const vpMobile = document.getElementById('vpMobile');
+    const vpTablet = document.getElementById('vpTablet');
+    const vpDesktop = document.getElementById('vpDesktop');
+
+    // Render Folder Cards (View 1)
+    function renderFolderCards() {
+      folderCardsGrid.innerHTML = '';
+      CURRICULUM.forEach(cat => {
+        if (activeFilter !== 'all' && activeFilter !== cat.id) return;
+        
+        let fileCount = 0;
+        cat.days.forEach(d => fileCount += d.files.length);
+
+        const card = document.createElement('div');
+        card.className = `folder-card bg-white rounded-2xl border ${cat.border} p-6 shadow-sm flex flex-col justify-between relative overflow-hidden group`;
+        card.innerHTML = `
+          <div class="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br ${cat.gradient} opacity-10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-300"></div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider ${cat.bgLight} ${cat.text} border ${cat.border}">
+                ${cat.badge}
+              </span>
+              <span class="text-xs font-semibold text-slate-400">${cat.days.length} Days / ${fileCount} Tasks</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:${cat.text} transition">${cat.title}</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">${cat.description}</p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+            <a href="${cat.overviewPage}" class="text-xs font-bold ${cat.text} hover:underline flex items-center gap-1">
+              <span>Launch Hub</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <button onclick="jumpToCurriculum('${cat.id}')" class="text-xs font-semibold px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg transition">
+              Explore ${cat.days.length} Days
+            </button>
+          </div>
+        `;
+        folderCardsGrid.appendChild(card);
+      });
+    }
+
+    // Render Curriculum Deep Dive (View 2)
+    function renderCurriculum() {
+      curriculumContainer.innerHTML = '';
+      let matchCount = 0;
+
+      CURRICULUM.forEach(cat => {
+        if (activeFilter !== 'all' && activeFilter !== cat.id) return;
+
+        // Filter days according to search query
+        const filteredDays = cat.days.filter(day => {
+          if (!searchQuery) return true;
+          const matchCat = cat.title.toLowerCase().includes(searchQuery) || cat.id.toLowerCase().includes(searchQuery);
+          const matchDay = day.day.toLowerCase().includes(searchQuery) || day.topic.toLowerCase().includes(searchQuery);
+          const matchFile = day.files.some(f => f.name.toLowerCase().includes(searchQuery) || f.path.toLowerCase().includes(searchQuery));
+          return matchCat || matchDay || matchFile;
+        });
+
+        if (filteredDays.length === 0) return;
+
+        const catSection = document.createElement('section');
+        catSection.id = cat.id;
+        catSection.className = 'bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden';
+        
+        // Category Header Bar
+        let totalCatFiles = 0;
+        cat.days.forEach(d => totalCatFiles += d.files.length);
+
+        catSection.innerHTML = `
+          <div class="p-6 bg-gradient-to-r ${cat.gradient} text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-white/20 text-white uppercase tracking-wider">${cat.badge}</span>
+                <span class="text-xs text-white/80">${cat.days.length} Curriculum Units &middot; ${totalCatFiles} Tasks</span>
+              </div>
+              <h3 class="text-2xl font-black tracking-tight">${cat.title}</h3>
+              <p class="text-xs text-white/90 mt-1 max-w-2xl">${cat.description}</p>
+            </div>
+            <a href="${cat.overviewPage}" class="self-start sm:self-auto inline-flex items-center gap-1.5 px-4 py-2 bg-white text-slate-900 hover:bg-slate-100 rounded-xl text-xs font-bold shadow-sm transition">
+              <span>View Folder Index</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <div class="divide-y divide-slate-100 p-2 sm:p-4">
+            ${filteredDays.map(day => {
+              const dayMatchingFiles = day.files.filter(f => {
+                if (!searchQuery) return true;
+                return f.name.toLowerCase().includes(searchQuery) || f.path.toLowerCase().includes(searchQuery) || day.topic.toLowerCase().includes(searchQuery);
+              });
+
+              matchCount += dayMatchingFiles.length;
+
+              return `
+                <div class="day-accordion py-4 px-3 sm:px-4 rounded-xl hover:bg-slate-50/75 transition">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-3">
+                      <span class="font-mono text-xs font-extrabold px-2.5 py-1 rounded-md ${cat.bgLight} ${cat.text} border ${cat.border}">${day.day}</span>
+                      <h4 class="text-base font-bold text-slate-800">${day.topic}</h4>
+                    </div>
+                    <span class="text-xs text-slate-400 font-medium">${dayMatchingFiles.length} exercise${dayMatchingFiles.length > 1 ? 's' : ''}</span>
+                  </div>
+
+                  <!-- Task Pills Grid -->
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    ${dayMatchingFiles.map(f => `
+                      <div class="task-chip group flex items-center bg-white border border-slate-200 hover:border-orange-400 rounded-xl shadow-xs overflow-hidden transition">
+                        <button onclick="previewTask('${f.path}', '${f.name.replace(/'/g, "\'")}')" class="px-2.5 py-2 bg-slate-50 group-hover:bg-orange-50 text-slate-400 group-hover:text-orange-600 transition" title="Preview Inside Portal">
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </button>
+                        <a href="${f.path}" target="_blank" class="px-3 py-2 text-xs font-semibold text-slate-700 hover:text-orange-600 flex items-center gap-1.5 transition">
+                          <span class="font-medium text-slate-900">${f.name}</span>
+                          <span class="text-[10px] uppercase font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">${f.badge}</span>
+                        </a>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+        curriculumContainer.appendChild(catSection);
+      });
+
+      // Update search feedback banner
+      if (searchQuery) {
+        searchFeedback.classList.remove('hidden');
+        searchFeedback.classList.add('flex');
+        searchFeedbackText.innerText = `Found ${matchCount} matching tasks for "${searchQuery}"`;
+      } else {
+        searchFeedback.classList.add('hidden');
+        searchFeedback.classList.remove('flex');
+      }
+    }
+
+    // Render Directory Tree (View 3)
+    function renderTree(nodes, container, depth = 0) {
+      nodes.forEach(node => {
+        const item = document.createElement('div');
+        item.className = 'tree-item';
+        const indent = depth * 20;
+
+        if (node.type === 'dir') {
+          const isRootFolder = depth === 0;
+          item.innerHTML = `
+            <div class="flex items-center gap-2 py-1 px-2 rounded hover:bg-slate-100 cursor-pointer text-slate-800 font-semibold" style="margin-left: ${indent}px;">
+              <svg class="w-4 h-4 text-amber-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
+              </svg>
+              <span>${node.name}</span>
+              <span class="text-[10px] text-slate-400 font-normal">(${node.children ? node.children.length : 0} items)</span>
+            </div>
+            <div class="tree-children"></div>
+          `;
+          container.appendChild(item);
+          if (node.children && node.children.length > 0) {
+            const childContainer = item.querySelector('.tree-children');
+            renderTree(node.children, childContainer, depth + 1);
+          }
+        } else {
+          let iconColor = 'text-slate-400';
+          if (node.ext === '.html') iconColor = 'text-orange-500';
+          else if (node.ext === '.js') iconColor = 'text-amber-500';
+          else if (node.ext === '.css') iconColor = 'text-blue-500';
+          else if (node.ext === '.pdf') iconColor = 'text-red-500';
+
+          item.innerHTML = `
+            <div class="flex items-center justify-between py-1 px-2 rounded hover:bg-slate-100 group" style="margin-left: ${indent}px;">
+              <div class="flex items-center gap-2 truncate">
+                <svg class="w-4 h-4 ${iconColor} flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+                <a href="${node.path}" target="_blank" class="text-xs text-slate-700 group-hover:text-orange-600 truncate hover:underline">${node.name}</a>
+              </div>
+              <button onclick="previewTask('${node.path}', '${node.name.replace(/'/g, "\'")}')" class="opacity-0 group-hover:opacity-100 text-xs px-2 py-0.5 bg-orange-100 text-orange-700 rounded hover:bg-orange-200 transition">
+                Preview
+              </button>
+            </div>
+          `;
+          container.appendChild(item);
+        }
+      });
+    }
+
+    // Preview Modal Actions
+    function previewTask(path, title) {
+      modalTitle.innerText = title;
+      modalPath.innerText = path;
+      modalExternalLink.href = path;
+      previewIframe.src = path;
+      previewModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      previewModal.classList.add('hidden');
+      previewIframe.src = 'about:blank';
+      document.body.style.overflow = '';
+    }
+
+    // Jump helper
+    function jumpToCurriculum(folderId) {
+      switchView('curriculum');
+      setTimeout(() => {
+        const el = document.getElementById(folderId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    }
+
+    // View Switcher logic
+    function switchView(viewName) {
+      currentView = viewName;
+      viewOverviewBtn.classList.remove('active', 'bg-white', 'shadow-sm', 'text-slate-900');
+      viewOverviewBtn.classList.add('text-slate-600');
+      viewCurriculumBtn.classList.remove('active', 'bg-white', 'shadow-sm', 'text-slate-900');
+      viewCurriculumBtn.classList.add('text-slate-600');
+      viewTreeBtn.classList.remove('active', 'bg-white', 'shadow-sm', 'text-slate-900');
+      viewTreeBtn.classList.add('text-slate-600');
+
+      overviewView.classList.add('hidden');
+      curriculumView.classList.add('hidden');
+      treeView.classList.add('hidden');
+
+      if (viewName === 'overview') {
+        viewOverviewBtn.classList.add('active', 'bg-white', 'shadow-sm', 'text-slate-900');
+        viewOverviewBtn.classList.remove('text-slate-600');
+        overviewView.classList.remove('hidden');
+      } else if (viewName === 'curriculum') {
+        viewCurriculumBtn.classList.add('active', 'bg-white', 'shadow-sm', 'text-slate-900');
+        viewCurriculumBtn.classList.remove('text-slate-600');
+        curriculumView.classList.remove('hidden');
+      } else if (viewName === 'tree') {
+        viewTreeBtn.classList.add('active', 'bg-white', 'shadow-sm', 'text-slate-900');
+        viewTreeBtn.classList.remove('text-slate-600');
+        treeView.classList.remove('hidden');
+      }
+    }
+
+    // Event Listeners
+    viewOverviewBtn.addEventListener('click', () => switchView('overview'));
+    viewCurriculumBtn.addEventListener('click', () => switchView('curriculum'));
+    viewTreeBtn.addEventListener('click', () => switchView('tree'));
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    previewModal.addEventListener('click', (e) => {
+      if (e.target === previewModal) closeModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === '/' && document.activeElement !== globalSearch) {
+        e.preventDefault();
+        globalSearch.focus();
+      }
+    });
+
+    modalReloadBtn.addEventListener('click', () => {
+      const currentSrc = previewIframe.src;
+      previewIframe.src = 'about:blank';
+      setTimeout(() => previewIframe.src = currentSrc, 50);
+    });
+
+    // Viewport resizing controls in modal
+    vpMobile.addEventListener('click', () => {
+      iframeWrapper.style.maxWidth = '375px';
+      vpMobile.classList.add('bg-slate-700', 'text-white');
+      vpTablet.classList.remove('bg-slate-700', 'text-white');
+      vpDesktop.classList.remove('bg-slate-700', 'text-white');
+    });
+    vpTablet.addEventListener('click', () => {
+      iframeWrapper.style.maxWidth = '768px';
+      vpTablet.classList.add('bg-slate-700', 'text-white');
+      vpMobile.classList.remove('bg-slate-700', 'text-white');
+      vpDesktop.classList.remove('bg-slate-700', 'text-white');
+    });
+    vpDesktop.addEventListener('click', () => {
+      iframeWrapper.style.maxWidth = '100%';
+      vpDesktop.classList.add('bg-slate-700', 'text-white');
+      vpMobile.classList.remove('bg-slate-700', 'text-white');
+      vpTablet.classList.remove('bg-slate-700', 'text-white');
+    });
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('active', 'bg-slate-900', 'text-white', 'border-slate-900');
+          b.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        btn.classList.add('active', 'bg-slate-900', 'text-white', 'border-slate-900');
+        btn.classList.remove('bg-slate-100', 'text-slate-700');
+        
+        activeFilter = btn.dataset.filter;
+        renderFolderCards();
+        renderCurriculum();
+      });
+    });
+
+    // Real-time Search
+    globalSearch.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderCurriculum();
+      if (searchQuery && currentView === 'overview') {
+        switchView('curriculum');
+      }
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      globalSearch.value = '';
+      searchQuery = '';
+      renderCurriculum();
+    });
+
+    // Random Task Launcher
+    randomBtn.addEventListener('click', () => {
+      if (ALL_FILES.length > 0) {
+        const rand = ALL_FILES[Math.floor(Math.random() * ALL_FILES.length)];
+        previewTask(rand.path, `${rand.name} (${rand.category} - ${rand.day})`);
+      }
+    });
+
+    // Expand / Collapse All Days
+    document.getElementById('expandAllDaysBtn').addEventListener('click', () => {
+      document.querySelectorAll('.day-accordion').forEach(el => el.classList.remove('opacity-40'));
+    });
+
+    // Initialize Everything
+    renderFolderCards();
+    renderCurriculum();
+    renderTree(DIRECTORY_TREE, treeContainer);
+  </script>
 </body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Toggle</title>
+    <style>
+        .card {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    transition: all 0.5s ease;
+}
+
+.show {
+    opacity: 1;
+    max-height: 100px;
+    margin: 10px 0;
+    transition: all 0.5s ease;
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <img src="../../CSS/day5/assets/images/Keyboard.jpg" alt="Card Image">
+
+        <h2>JavaScript</h2>
+
+        <p id="details" class="hidden">
+            JavaScript is a programming language used to make
+            websites interactive and dynamic.
+        </p>
+
+        <button id="detailsBtn">Show Details</button>
+
+    </div>
+
+    <script src="assets/task3.js"></script>
+</body>
+</html>
