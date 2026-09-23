@@ -1,0 +1,26 @@
+.body{
+    background-color: gray;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    background-color: white;
+    width:  200px;
+    align-items: center;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.card img {
+    width: 120px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card>button :hover{
+    background-color: rgb(137, 190, 13);
+}
