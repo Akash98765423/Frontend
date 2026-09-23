@@ -1,9 +1,10 @@
-import React from 'react'
-
 const Card = () => {
-  return (
-    <div>C</div>
-  )
-}
+    return (
+        <div>
+            <h2>Card</h2>
+            <p>This is a card component</p>
+        </div>
+    );
+};
 
-export default C
+export default Card;
