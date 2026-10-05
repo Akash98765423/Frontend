@@ -1,0 +1,95 @@
+import { useState } from "react";
+
+const StudentForm = () => {
+
+    const [student, setStudent] = useState({
+        name: "",
+        email: "",
+        age: "",
+        course: "",
+        city: ""
+    });
+
+    const handleChange = (e) => {
+
+        const { name, value } = e.target;
+
+        setStudent({
+            ...student,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault();
+
+        console.log(student);
+    };
+
+    return (
+        <div>
+            <h2>Student Registration Form</h2>
+
+            <form onSubmit={handleSubmit}>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Name"
+                    value={student.name}
+                    onChange={handleChange}
+                />
+
+                <br /><br />
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    value={student.email}
+                    onChange={handleChange}
+                />
+
+                <br /><br />
+
+                <input
+                    type="number"
+                    name="age"
+                    placeholder="Enter Age"
+                    value={student.age}
+                    onChange={handleChange}
+                />
+
+                <br /><br />
+
+                <input
+                    type="text"
+                    name="course"
+                    placeholder="Enter Course"
+                    value={student.course}
+                    onChange={handleChange}
+                />
+
+                <br /><br />
+
+                <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter City"
+                    value={student.city}
+                    onChange={handleChange}
+                />
+
+                <br /><br />
+
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+        </div>
+    );
+};
+
+export default StudentForm;
