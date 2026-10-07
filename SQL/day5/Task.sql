@@ -1,6 +1,6 @@
-create database datatable;
+CREATE DATABASE normalization_db;
 
-use datatable;
+USE normalization_db;
 
 CREATE TABLE Courses (
     course_id INT PRIMARY KEY,
@@ -28,11 +28,6 @@ VALUES
 (4, 'Priya', 101),
 (5, 'Divya', 102);
 
-SELECT 
-    e.employee_id,
-    e.employee_name,
-    e.salary,
-    d.department_name
-FROM EMPLOYEES e
-INNER JOIN DEPARTMENTS d
-ON e.department_id = d.department_id;
+SELECT * FROM Courses;
+
+SELECT * FROM Students;
